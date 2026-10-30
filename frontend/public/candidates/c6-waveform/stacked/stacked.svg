@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
-  <title>ICD Harmonized Signal and Quantized Waveform Stacked Lockup</title>
+  <title>Harmonized Waveform Stacked Lockup</title>
 <path fill-rule="nonzero" fill="rgb(11.764706%, 25.098039%, 68.627451%)" fill-opacity="1" d="M 194.160156 124.601562 L 201.898438 135.4375 L 201.898438 144.722656 L 194.160156 155.558594 L 186.421875 144.722656 L 186.421875 135.4375 Z M 194.160156 124.601562 "/>
 <path fill-rule="nonzero" fill="rgb(23.137255%, 50.980392%, 96.470588%)" fill-opacity="1" d="M 214.800781 112.558594 L 222.539062 123.394531 L 222.539062 156.765625 L 214.800781 167.601562 L 207.058594 156.765625 L 207.058594 123.394531 Z M 214.800781 112.558594 "/>
 <path fill-rule="nonzero" fill="rgb(37.647059%, 64.705882%, 98.039216%)" fill-opacity="1" d="M 235.441406 93.640625 L 243.179688 104.476562 L 243.179688 175.683594 L 235.441406 186.519531 L 227.699219 175.683594 L 227.699219 104.476562 Z M 235.441406 93.640625 "/>

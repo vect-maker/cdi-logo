@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="920" height="256" viewBox="0 0 920 256">
-  <title>ICD Voronoi Decision Cells and Clustering Light Lockup</title>
+  <title>Voronoi Decision Cells Light Lockup</title>
 <path fill-rule="nonzero" fill="rgb(0%, 94.117647%, 100%)" fill-opacity="1" d="M 115.886719 109.105469 L 147.324219 102.433594 L 158.59375 128.910156 L 142.304688 150.332031 L 112.5 140.5625 Z M 115.886719 109.105469 "/>
 <path fill-rule="nonzero" fill="rgb(37.647059%, 64.705882%, 98.039216%)" fill-opacity="1" d="M 101.386719 59.144531 L 155.488281 59.253906 L 146.480469 94.117188 L 115.28125 101.007812 Z M 101.386719 59.144531 "/>
 <path fill-rule="nonzero" fill="rgb(23.137255%, 50.980392%, 96.470588%)" fill-opacity="1" d="M 162.355469 63.984375 L 199.203125 95.199219 L 189.621094 133.980469 L 164.558594 124.710938 L 155.171875 98.683594 Z M 162.355469 63.984375 "/>

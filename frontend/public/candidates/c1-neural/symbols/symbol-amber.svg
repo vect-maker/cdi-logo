@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
-  <title>ICD Neural Cluster and Distributed Graph Symbol (Solar Amber and Cyber Orange)</title>
+  <title>Neural Cluster Symbol (Solar Amber and Cyber Orange)</title>
 <path fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(60.392157%, 20.392157%, 7.058824%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 48 L 46 128 "/>
 <path fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(60.392157%, 20.392157%, 7.058824%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 128 L 46 208 "/>
 <path fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(85.098039%, 46.666667%, 2.352941%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 48 L 124 70 "/>

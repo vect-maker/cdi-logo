@@ -1,0 +1,193 @@
+{
+  "meta": {
+    "title": "Ingeniería en Ciencias de Datos (ICD) - Identidad Gráfica Oficial",
+    "faculty": "Ciencias Básicas y Tecnología",
+    "institution": "Universidad de Guadalajara",
+    "version": "2.0.0",
+    "updatedAt": "2026-10-30"
+  },
+  "fabrics": [
+    {
+      "id": "black",
+      "name": "Negro",
+      "hex": "#111827"
+    },
+    {
+      "id": "charcoal",
+      "name": "Carbón",
+      "hex": "#374151"
+    },
+    {
+      "id": "gray",
+      "name": "Gris Jaspe",
+      "hex": "#9CA3AF"
+    }
+  ],
+  "compositions": [
+    {
+      "id": "symbols",
+      "name": "Símbolo Solo",
+      "subtitle": "Isotipo sin texto",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "id": "lockups",
+      "name": "Logo Horizontal",
+      "subtitle": "Símbolo y texto en línea",
+      "width": 920,
+      "height": 256
+    },
+    {
+      "id": "stacked",
+      "name": "Logo Centrado",
+      "subtitle": "Símbolo arriba y texto abajo",
+      "width": 512,
+      "height": 512
+    }
+  ],
+  "palettes": [
+    {
+      "id": "cobalt",
+      "name": "Azul & Cian",
+      "fullName": "Tech Cobalt and Cyan",
+      "primaryHex": "#3B82F6",
+      "secondaryHex": "#00F0FF",
+      "tokens": {
+        "dark": "#1E40AF",
+        "mid": "#3B82F6",
+        "bright": "#60A5FA",
+        "accent": "#00F0FF",
+        "sub": "#E2E8F0",
+        "white": "#FFFFFF"
+      },
+      "contrast": {
+        "onBlack": "13.2:1 (AAA)",
+        "onCharcoal": "10.4:1 (AAA)",
+        "onGray": "4.8:1 (AA)"
+      }
+    },
+    {
+      "id": "emerald",
+      "name": "Esmeralda & Menta",
+      "fullName": "Cyber Emerald and Mint",
+      "primaryHex": "#10B981",
+      "secondaryHex": "#00F5D4",
+      "tokens": {
+        "dark": "#065F46",
+        "mid": "#10B981",
+        "bright": "#34D399",
+        "accent": "#00F5D4",
+        "sub": "#E2E8F0",
+        "white": "#FFFFFF"
+      },
+      "contrast": {
+        "onBlack": "12.7:1 (AAA)",
+        "onCharcoal": "9.8:1 (AAA)",
+        "onGray": "5.1:1 (AA)"
+      }
+    },
+    {
+      "id": "violet",
+      "name": "Violeta & Fucsia",
+      "fullName": "Ultraviolet and Neon Orchid",
+      "primaryHex": "#8B5CF6",
+      "secondaryHex": "#FF2A85",
+      "tokens": {
+        "dark": "#5B21B6",
+        "mid": "#8B5CF6",
+        "bright": "#A78BFA",
+        "accent": "#FF2A85",
+        "sub": "#E2E8F0",
+        "white": "#FFFFFF"
+      },
+      "contrast": {
+        "onBlack": "8.5:1 (AAA)",
+        "onCharcoal": "6.8:1 (AA)",
+        "onGray": "4.6:1 (AA)"
+      }
+    },
+    {
+      "id": "amber",
+      "name": "Ámbar & Naranja",
+      "fullName": "Solar Amber and Cyber Orange",
+      "primaryHex": "#F59E0B",
+      "secondaryHex": "#FF5400",
+      "tokens": {
+        "dark": "#9A3412",
+        "mid": "#D97706",
+        "bright": "#F59E0B",
+        "accent": "#FF5400",
+        "sub": "#E2E8F0",
+        "white": "#FFFFFF"
+      },
+      "contrast": {
+        "onBlack": "8.3:1 (AAA)",
+        "onCharcoal": "6.5:1 (AA)",
+        "onGray": "4.5:1 (AA)"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "id": "c1-neural",
+      "slot": "01",
+      "name": "Neural Cluster",
+      "subtitle": "Redes y nodos de datos",
+      "concept": "Distributed graph neural networks and node embeddings",
+      "status": "active",
+      "module": "c1_neural",
+      "tags": ["neural", "graphs", "clustering", "ai"]
+    },
+    {
+      "id": "c2-matrix",
+      "slot": "02",
+      "name": "Matrix Tensor",
+      "subtitle": "Estructura isométrica matricial",
+      "concept": "Multidimensional matrix algebra and tensor slice decomposition",
+      "status": "active",
+      "module": "c2_matrix",
+      "tags": ["tensor", "matrix", "algebra", "isometric"]
+    },
+    {
+      "id": "c3-hexcore",
+      "slot": "03",
+      "name": "Hex Data Core",
+      "subtitle": "Núcleo de datos hexagonal",
+      "concept": "Hexagonal spatial indexing and cyber prism core",
+      "status": "active",
+      "module": "c3_hexcore",
+      "tags": ["hexagon", "prism", "spatial", "indexing"]
+    },
+    {
+      "id": "c4-tesseract",
+      "slot": "04",
+      "name": "4D Hypercube Tesseract",
+      "subtitle": "Proyección geométrica de hipercubo",
+      "concept": "Hyperdimensional feature space isometric 4D projection",
+      "status": "active",
+      "module": "c4_tesseract",
+      "tags": ["tesseract", "hypercube", "projection", "dimensions"]
+    },
+    {
+      "id": "c5-voronoi",
+      "slot": "05",
+      "name": "Voronoi Decision Cells",
+      "subtitle": "Células y fronteras Voronoi",
+      "concept": "Spatial clustering, KNN, and partitioned decision boundaries",
+      "status": "active",
+      "module": "c5_voronoi",
+      "tags": ["voronoi", "decision-boundary", "classification", "knn"]
+    },
+    {
+      "id": "c6-waveform",
+      "slot": "06",
+      "name": "Harmonized Waveform",
+      "subtitle": "Onda armónica de datos",
+      "concept": "Signal extraction, Fourier transforms, and entropy reduction",
+      "status": "active",
+      "module": "c6_waveform",
+      "tags": ["fourier", "signal", "waveform", "entropy"]
+    }
+  ]
+}

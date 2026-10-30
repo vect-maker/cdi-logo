@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="920" height="256" viewBox="0 0 920 256">
-  <title>ICD Harmonized Signal and Quantized Waveform Light Lockup (Tech Cobalt and Cyan)</title>
+  <title>Harmonized Waveform Light Lockup (Tech Cobalt and Cyan)</title>
 <path fill-rule="nonzero" fill="rgb(11.764706%, 25.098039%, 68.627451%)" fill-opacity="1" d="M 70.800781 113 L 78 123.078125 L 78 131.71875 L 70.800781 141.800781 L 63.601562 131.71875 L 63.601562 123.078125 Z M 70.800781 113 "/>
 <path fill-rule="nonzero" fill="rgb(23.137255%, 50.980392%, 96.470588%)" fill-opacity="1" d="M 90 101.800781 L 97.199219 111.878906 L 97.199219 142.921875 L 90 153 L 82.800781 142.921875 L 82.800781 111.878906 Z M 90 101.800781 "/>
 <path fill-rule="nonzero" fill="rgb(37.647059%, 64.705882%, 98.039216%)" fill-opacity="1" d="M 109.199219 84.199219 L 116.398438 94.28125 L 116.398438 160.519531 L 109.199219 170.601562 L 102 160.519531 L 102 94.28125 Z M 109.199219 84.199219 "/>

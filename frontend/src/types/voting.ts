@@ -1,16 +1,22 @@
+// THIS FILE IS AUTO-GENERATED FROM candidates/candidates.config.json
+// Run `just sync-identity` or `python3 build.py --sync-contracts` to regenerate.
+
 export interface CandidateFigure {
   id: string
   slot: string
   name: string
   subtitle: string
+  concept?: string
   svgPath: (palette: string) => string
 }
 
 export interface ColorPalette {
   id: string
   name: string
+  fullName?: string
   primaryHex: string
   secondaryHex: string
+  tokens?: Record<string, string>
 }
 
 export interface CompositionType {
@@ -43,6 +49,7 @@ export const CANDIDATE_FIGURES: CandidateFigure[] = [
     slot: '01',
     name: 'Neural Cluster',
     subtitle: 'Redes y nodos de datos',
+    concept: 'Distributed graph neural networks and node embeddings',
     svgPath: (palette) => `/candidates/c1-neural/symbols/symbol-${palette}.svg`,
   },
   {
@@ -50,6 +57,7 @@ export const CANDIDATE_FIGURES: CandidateFigure[] = [
     slot: '02',
     name: 'Matrix Tensor',
     subtitle: 'Estructura isométrica matricial',
+    concept: 'Multidimensional matrix algebra and tensor slice decomposition',
     svgPath: (palette) => `/candidates/c2-matrix/symbols/symbol-${palette}.svg`,
   },
   {
@@ -57,6 +65,7 @@ export const CANDIDATE_FIGURES: CandidateFigure[] = [
     slot: '03',
     name: 'Hex Data Core',
     subtitle: 'Núcleo de datos hexagonal',
+    concept: 'Hexagonal spatial indexing and cyber prism core',
     svgPath: (palette) => `/candidates/c3-hexcore/symbols/symbol-${palette}.svg`,
   },
   {
@@ -64,6 +73,7 @@ export const CANDIDATE_FIGURES: CandidateFigure[] = [
     slot: '04',
     name: '4D Hypercube Tesseract',
     subtitle: 'Proyección geométrica de hipercubo',
+    concept: 'Hyperdimensional feature space isometric 4D projection',
     svgPath: (palette) => `/candidates/c4-tesseract/symbols/symbol-${palette}.svg`,
   },
   {
@@ -71,6 +81,7 @@ export const CANDIDATE_FIGURES: CandidateFigure[] = [
     slot: '05',
     name: 'Voronoi Decision Cells',
     subtitle: 'Células y fronteras Voronoi',
+    concept: 'Spatial clustering, KNN, and partitioned decision boundaries',
     svgPath: (palette) => `/candidates/c5-voronoi/symbols/symbol-${palette}.svg`,
   },
   {
@@ -78,6 +89,7 @@ export const CANDIDATE_FIGURES: CandidateFigure[] = [
     slot: '06',
     name: 'Harmonized Waveform',
     subtitle: 'Onda armónica de datos',
+    concept: 'Signal extraction, Fourier transforms, and entropy reduction',
     svgPath: (palette) => `/candidates/c6-waveform/symbols/symbol-${palette}.svg`,
   },
 ]
@@ -86,24 +98,28 @@ export const COLOR_PALETTES: ColorPalette[] = [
   {
     id: 'cobalt',
     name: 'Azul & Cian',
+    fullName: 'Tech Cobalt and Cyan',
     primaryHex: '#3B82F6',
     secondaryHex: '#00F0FF',
   },
   {
     id: 'emerald',
     name: 'Esmeralda & Menta',
+    fullName: 'Cyber Emerald and Mint',
     primaryHex: '#10B981',
     secondaryHex: '#00F5D4',
   },
   {
     id: 'violet',
     name: 'Violeta & Fucsia',
+    fullName: 'Ultraviolet and Neon Orchid',
     primaryHex: '#8B5CF6',
     secondaryHex: '#FF2A85',
   },
   {
     id: 'amber',
     name: 'Ámbar & Naranja',
+    fullName: 'Solar Amber and Cyber Orange',
     primaryHex: '#F59E0B',
     secondaryHex: '#FF5400',
   },

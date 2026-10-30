@@ -9,9 +9,23 @@ artifact_dir := "/var/home/ocelot/.gemini/antigravity-cli/brain/bb63ec6e-ee8a-42
 default:
     @just --list
 
-# Compile all vector SVG masters, render 512px PNGs, and generate apparel showcases
+# Compile all vector SVG masters, sync frontend contracts and assets, render PNGs, and generate apparel showcases
 build:
-    {{python}} build.py --build --render --showcase
+    {{python}} build.py --build --sync-contracts --sync-frontend --render --showcase
+
+# Synchronize identity system: compiles SVGs, syncs contracts (voting.ts & domain.ts) and copies to frontend
+sync-identity:
+    {{python}} build.py --build --sync-contracts --sync-frontend
+    @echo "  Identity synchronized: SVGs, frontend assets, and TypeScript/Zod contracts up to date."
+
+# Rapidly recompile and sync a single candidate (e.g. just iterate-candidate c4-tesseract)
+iterate-candidate cand:
+    {{python}} build.py --candidate {{cand}} --sync-contracts --sync-frontend
+    @echo "  Candidate {{cand}} recompiled and synchronized."
+
+# Run WCAG 2.1 accessibility and contrast audit for all palettes across fabrics
+test-contrast:
+    {{python}} build.py --contrast
 
 # Run vector quality audit and verify documentation link/image integrity
 test-unit:

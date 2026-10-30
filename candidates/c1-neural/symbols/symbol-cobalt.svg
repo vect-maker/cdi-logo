@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
-  <title>ICD Neural Cluster and Distributed Graph Symbol (Tech Cobalt and Cyan)</title>
+  <title>Neural Cluster Symbol (Tech Cobalt and Cyan)</title>
 <path fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(11.764706%, 25.098039%, 68.627451%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 48 L 46 128 "/>
 <path fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(11.764706%, 25.098039%, 68.627451%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 128 L 46 208 "/>
 <path fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(23.137255%, 50.980392%, 96.470588%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 48 L 124 70 "/>
