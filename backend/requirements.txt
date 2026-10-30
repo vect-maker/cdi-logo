@@ -116,6 +116,7 @@ pydantic==2.14.2
     #   fastapi-cloud-cli
     #   pydantic-extra-types
     #   pydantic-settings
+    #   sqlmodel
 pydantic-core==2.50.2
     # via pydantic
 pydantic-extra-types==2.11.1
@@ -152,6 +153,10 @@ sentry-sdk==2.73.0
     # via fastapi-cloud-cli
 shellingham==1.5.4
     # via typer
+sqlalchemy==2.1.6
+    # via sqlmodel
+sqlmodel==0.0.48
+    # via icd-voting-backend (pyproject.toml)
 starlette==1.10.0
     # via fastapi
 truststore==0.10.5
@@ -175,6 +180,8 @@ typing-extensions==4.16.0
     #   pydantic-extra-types
     #   pydantic-settings
     #   rich-toolkit
+    #   sqlalchemy
+    #   sqlmodel
     #   typing-inspection
 typing-inspection==0.4.4
     # via

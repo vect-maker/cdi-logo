@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
+    "typecheck": "vue-tsc -b --noEmit && tsc -p cypress/tsconfig.json --noEmit",
     "preview": "vite preview",
-    "test": "node --test src/**/*.test.ts",
+    "test": "tsx --test src/**/*.test.ts",
     "test:e2e": "cypress run",
     "test:e2e:open": "cypress open",
     "skills:update": "skills update"
@@ -32,6 +33,7 @@
     "@vue/tsconfig": "^0.9.1",
     "cypress": "^16.2.0",
     "skills": "^1.7.4",
+    "tsx": "^4.23.15",
     "typescript": "~6.0.2",
     "vite": "^8.3.0",
     "vite-plugin-pwa": "^2.0.0",

@@ -53,6 +53,10 @@ skills-update:
 # Run complete test suite (unit + audit)
 test: test-unit
 
+# Run full project health check (backend types & lint, frontend types & tests, backend tests)
+check: backend-check frontend-typecheck backend-test frontend-test frontend-build
+    @echo "  All systems healthy: Backend (types, lint, tests) + Frontend (types, tests, build) 100% PASS"
+
 # Wipe output directories (candidates/, renders/, and artifact assets) to prevent stale files
 clean:
     {{python}} build.py --clean
@@ -73,13 +77,59 @@ backend-setup:
 backend-requirements:
     cd backend && uv pip compile pyproject.toml -o requirements.txt
 
-# Start backend FastAPI development server on port 8000
+# Start backend FastAPI development server locally on port 8000
 backend-dev *args="--port 8000 --host 0.0.0.0":
     cd backend && uv run uvicorn app.main:app --reload {{args}}
 
-# Run backend unit verification on /health endpoint
+# Build backend container image using Podman Compose
+backend-container-build:
+    podman compose build backend
+
+# Run backend development container with hot-reloading mounted volume
+backend-container-up:
+    podman compose up -d backend
+    @echo "  Backend running in container at http://localhost:8000"
+
+# Stop backend development container
+backend-container-down:
+    podman compose down
+
+# Follow backend container logs
+backend-container-logs:
+    podman compose logs -f backend
+
+# Run comprehensive backend static analysis (basedpyright type check + ruff lint & format)
+backend-check: backend-typecheck backend-lint
+    @echo "  Backend static analysis: 100% PASS (Zero type errors, zero lint warnings)"
+
+# Run backend static type check using basedpyright (primary LSP type checker in Zed)
+backend-typecheck:
+    cd backend && uv run basedpyright app
+
+# Run secondary static type check using mypy
+backend-typecheck-mypy:
+    cd backend && uv run mypy app
+
+# Run backend linting and style verification using ruff
+backend-lint:
+    cd backend && uv run ruff check app && uv run ruff format --check app
+
+# Automatically fix formatting and auto-fixable lint issues with ruff
+backend-format:
+    cd backend && uv run ruff check --fix app && uv run ruff format app
+
+# Run backend unit verification on /health endpoint and vote lifecycle
 backend-test:
-    cd backend && uv run python -c "from fastapi.testclient import TestClient; from app.main import app; c = TestClient(app); r = c.get('/health'); assert r.status_code == 200, f'Status: {r.status_code}'; assert r.json()['status'] == 'ok'; print('  FastAPI /health check: 100% PASS')"
+    cd backend && uv run python -c "from fastapi.testclient import TestClient; from app.main import app; tc = TestClient(app); tc.__enter__(); hr = tc.get('/health'); assert hr.status_code == 200 and hr.json()['status'] == 'ok'; cr = tc.get('/api/v1/votes/check/20268888'); assert cr.status_code == 200; tc.__exit__(None, None, None); print('  FastAPI + SQLModel verification: 100% PASS (db:', hr.json()['database'], ')')"
+
+# Run frontend unit tests (Zod validation and API client)
+frontend-test:
+    cd frontend && npm test
+
+# Run comprehensive frontend static type check across all components, API, unit tests, and Cypress specs
+frontend-typecheck:
+    cd frontend && npm run typecheck
+    @echo "  Frontend static type check: 100% PASS (Components, stores, API, unit tests & Cypress specs)"
 
 # Build the frontend production bundle (type check + vite build)
 frontend-build: frontend-sync

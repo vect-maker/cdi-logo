@@ -63,8 +63,11 @@ htmlcov/
 node_modules/
 dist/
 dist-ssr/
+*.tsbuildinfo
 *.local
-.env*.local
+.env
+.env.*
+!.env.example
 .vite/
 cypress/videos/
 cypress/screenshots/

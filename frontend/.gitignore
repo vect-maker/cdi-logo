@@ -13,11 +13,13 @@ dist
 dist-ssr
 coverage
 .vite
+*.tsbuildinfo
 
 # Environment & Local Overrides
 *.local
-.env.local
-.env.*.local
+.env
+.env.*
+!.env.example
 
 # Python Caches (if any)
 __pycache__

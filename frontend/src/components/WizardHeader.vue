@@ -1,8 +1,21 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import { useVotingStore } from '../stores/votingStore'
 import { Check } from '@lucide/vue'
+import { useHealthApi } from '@/api'
 
 const store = useVotingStore()
+const { getHealth } = useHealthApi()
+const isBackendOnline = ref<boolean | null>(null)
+
+onMounted(async () => {
+  try {
+    const res = await getHealth()
+    isBackendOnline.value = res.status === 'ok'
+  } catch {
+    isBackendOnline.value = false
+  }
+})
 
 const steps = [
   { num: 1, label: 'Identificación' },
@@ -28,6 +41,16 @@ const steps = [
               </h1>
               <span class="bg-blue-950 text-blue-300 border border-blue-500/50 text-[10px] sm:text-xs font-mono px-1.5 py-0.2 rounded font-semibold shrink-0">
                 Ronda 1
+              </span>
+              <span
+                v-if="isBackendOnline !== null"
+                data-cy="backend-status-badge"
+                :class="isBackendOnline ? 'text-emerald-400 bg-emerald-950/60 border-emerald-500/40' : 'text-slate-400 bg-slate-800/60 border-slate-700'"
+                class="border text-[10px] sm:text-xs font-mono px-1.5 py-0.2 rounded-full flex items-center gap-1 shrink-0"
+                :title="isBackendOnline ? 'Servidor API FastAPI conectado' : 'Modo local sin conexión'"
+              >
+                <span :class="isBackendOnline ? 'bg-emerald-400' : 'bg-slate-400'" class="w-1.5 h-1.5 rounded-full inline-block"></span>
+                <span class="hidden md:inline">{{ isBackendOnline ? 'API Conectada' : 'Modo Local' }}</span>
               </span>
             </div>
             <p class="text-[11px] sm:text-xs text-slate-300 truncate">
