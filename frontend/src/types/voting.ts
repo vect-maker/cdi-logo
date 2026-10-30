@@ -39,6 +39,8 @@ export interface StudentVote {
   paletteId: string
   compositionId: 'symbols' | 'lockups' | 'stacked'
   recommendations: string
+  hasAttachment?: boolean
+  attachmentFilename?: string | null
   timestamp: number
   isoDate: string
 }

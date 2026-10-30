@@ -1,6 +1,10 @@
 from datetime import UTC, datetime
+from typing import TYPE_CHECKING, Optional
 
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field, Relationship, SQLModel
+
+if TYPE_CHECKING:
+    from app.models.file import VoteFile
 
 
 class VoteBase(SQLModel):
@@ -26,6 +30,8 @@ class Vote(VoteBase, table=True):
         description="Hash criptográfico SHA256 para verificación del voto"
     )
 
+    file: Optional["VoteFile"] = Relationship(back_populates="vote")
+
 
 class VoteCreate(VoteBase):
     pass
@@ -36,3 +42,5 @@ class VoteRead(VoteBase):
     receipt_id: str
     timestamp: datetime
     verification_hash: str
+    has_attachment: bool = False
+    attachment_filename: str | None = None

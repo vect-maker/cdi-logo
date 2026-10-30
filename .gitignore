@@ -85,3 +85,9 @@ lerna-debug.log*
 # Transient Pipeline Renders
 renders/*
 !renders/.gitignore
+
+# Archive & Voting Snapshots
+backend/archive/
+archive/
+*.db
+*.sqlite3

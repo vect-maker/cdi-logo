@@ -33,7 +33,8 @@ export const useApiFetch = createFetch({
     updateDataOnError: true,
     async beforeFetch({ options }) {
       const headers = normalizeHeaders(options.headers);
-      if (!headers["Content-Type"]) {
+      const isFormData = typeof FormData !== "undefined" && options.body instanceof FormData;
+      if (!headers["Content-Type"] && !isFormData) {
         headers["Content-Type"] = "application/json";
       }
       options.headers = headers;

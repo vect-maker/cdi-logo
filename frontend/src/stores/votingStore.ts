@@ -27,6 +27,8 @@ export const useVotingStore = defineStore('voting', () => {
   const selectedComposition = ref<'symbols' | 'lockups' | 'stacked'>('lockups')
   const selectedFabric = ref<'black' | 'charcoal' | 'gray'>('black')
   const recommendations = ref('')
+  const suggestionFile = ref<File | null>(null)
+  const fileError = ref<string | null>(null)
 
   const isSubmitting = ref(false)
   const submittedVote = ref<StudentVote | null>(null)
@@ -120,6 +122,28 @@ export const useVotingStore = defineStore('voting', () => {
     currentStep.value = step
   }
 
+  function setSuggestionFile(file: File | null) {
+    fileError.value = null
+    if (!file) {
+      suggestionFile.value = null
+      return
+    }
+
+    const allowedTypes = ['application/pdf', 'image/png', 'image/jpeg', 'image/webp']
+    if (!allowedTypes.includes(file.type)) {
+      fileError.value = 'Formato no compatible. Solo se admiten archivos PDF o imágenes (PNG, JPG, WEBP).'
+      return
+    }
+
+    const maxSize = 5 * 1024 * 1024 // 5 MB
+    if (file.size > maxSize) {
+      fileError.value = 'El archivo supera el tamaño máximo permitido de 5 MB.'
+      return
+    }
+
+    suggestionFile.value = file
+  }
+
   async function submitVote(): Promise<boolean> {
     if (!isCodeValid.value) {
       codeError.value = 'Código de estudiante inválido'
@@ -139,6 +163,7 @@ export const useVotingStore = defineStore('voting', () => {
         palette_id: selectedPalette.value as any,
         position_id: selectedComposition.value as any,
         rationale: recommendations.value.trim(),
+        file: suggestionFile.value || undefined,
       })
 
       const voteRecord: StudentVote = {
@@ -148,6 +173,8 @@ export const useVotingStore = defineStore('voting', () => {
         paletteId: receipt.palette_id,
         compositionId: receipt.position_id as any,
         recommendations: recommendations.value.trim(),
+        hasAttachment: receipt.has_attachment,
+        attachmentFilename: receipt.attachment_filename,
         timestamp: new Date(receipt.timestamp).getTime(),
         isoDate: receipt.timestamp,
       }
@@ -173,6 +200,8 @@ export const useVotingStore = defineStore('voting', () => {
     codeError.value = null
     submitError.value = null
     recommendations.value = ''
+    suggestionFile.value = null
+    fileError.value = null
     submittedVote.value = null
     showReceiptModal.value = false
     currentStep.value = 1
@@ -184,6 +213,8 @@ export const useVotingStore = defineStore('voting', () => {
     codeError,
     isValidatingCode,
     submitError,
+    suggestionFile,
+    fileError,
     selectedFigure,
     selectedPalette,
     selectedComposition,
@@ -199,6 +230,7 @@ export const useVotingStore = defineStore('voting', () => {
     activeFabric,
     currentAssetUrl,
     validateAndProceedStep1,
+    setSuggestionFile,
     goToStep,
     submitVote,
     resetForm,

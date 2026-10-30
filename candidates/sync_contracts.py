@@ -66,6 +66,8 @@ def generate_voting_types(config: dict) -> str:
         "  paletteId: string",
         "  compositionId: 'symbols' | 'lockups' | 'stacked'",
         "  recommendations: string",
+        "  hasAttachment?: boolean",
+        "  attachmentFilename?: string | null",
         "  timestamp: number",
         "  isoDate: string",
         "}",

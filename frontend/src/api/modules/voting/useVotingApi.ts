@@ -33,13 +33,27 @@ export const useVotingApi = () => {
   }
 
   /**
-   * Submit a student vote with validation.
+   * Submit a student vote with validation (supports JSON or multipart if file is attached).
    * POST /api/v1/votes
    */
   async function submitVote(payload: SubmitVoteRequest): Promise<VoteReceiptResponse> {
     const validatedPayload = SubmitVoteRequestSchema.parse(payload);
+
+    let bodyData: unknown = validatedPayload;
+    if (validatedPayload.file) {
+      const formData = new FormData();
+      formData.append("student_id", validatedPayload.student_id);
+      formData.append("student_name", validatedPayload.student_name);
+      formData.append("figure_id", validatedPayload.figure_id);
+      formData.append("palette_id", validatedPayload.palette_id);
+      formData.append("position_id", validatedPayload.position_id);
+      formData.append("rationale", validatedPayload.rationale || "");
+      formData.append("file", validatedPayload.file);
+      bodyData = formData;
+    }
+
     const { data, error } = await useApiFetch("/api/v1/votes")
-      .post(validatedPayload)
+      .post(bodyData)
       .json();
 
     if (error.value || !data.value) {

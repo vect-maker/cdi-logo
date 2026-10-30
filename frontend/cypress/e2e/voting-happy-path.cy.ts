@@ -15,15 +15,17 @@ describe('Official Logo Voting — Full Happy Path', () => {
         body: {
           id: 1,
           receipt_id: 'ICD-VOTE-20261030-9988AABB',
-          student_id: req.body.student_id,
-          student_name: req.body.student_name,
-          figure_id: req.body.figure_id,
-          palette_id: req.body.palette_id,
-          position_id: req.body.position_id,
-          rationale: req.body.rationale,
+          student_id: '21948573',
+          student_name: 'Estudiante 21948573',
+          figure_id: 'c2-matrix',
+          palette_id: 'emerald',
+          position_id: 'lockups',
+          rationale: 'Excelente combinación geométrica. Recomendado para bordado en batas y sudaderas.',
           round: 1,
           timestamp: new Date().toISOString(),
           verification_hash: 'sha256:abc123456789def',
+          has_attachment: true,
+          attachment_filename: 'propuesta_estudiante.pdf',
         },
       })
     }).as('submitVote')
@@ -89,6 +91,19 @@ describe('Official Logo Voting — Full Happy Path', () => {
       'Excelente combinación geométrica. Recomendado para bordado en batas y sudaderas.'
     )
 
+    // Verify file dropzone is visible and attach sample PDF suggestion
+    cy.get('[data-cy="file-dropzone"]').should('be.visible')
+    cy.get('[data-cy="suggestion-file-input"]').selectFile(
+      {
+        contents: Cypress.Buffer.from('%PDF-1.4 sample proposal content'),
+        fileName: 'propuesta_estudiante.pdf',
+        mimeType: 'application/pdf',
+      },
+      { force: true }
+    )
+    cy.get('[data-cy="selected-file-badge"]').should('be.visible')
+    cy.get('[data-cy="selected-file-name"]').should('contain.text', 'propuesta_estudiante.pdf')
+
     // Submit Ballot
     cy.get('[data-cy="submit-vote-btn"]').click()
 
@@ -98,6 +113,7 @@ describe('Official Logo Voting — Full Happy Path', () => {
     cy.get('[data-cy="receipt-figure"]').should('contain.text', 'Matrix Tensor')
     cy.get('[data-cy="receipt-palette"]').should('contain.text', 'Esmeralda & Menta')
     cy.get('[data-cy="receipt-composition"]').should('contain.text', 'Logo Horizontal')
+    cy.get('[data-cy="receipt-attachment"]').should('contain.text', 'propuesta_estudiante.pdf')
 
     // Finalize and reset
     cy.get('[data-cy="finish-vote-btn"]').click()

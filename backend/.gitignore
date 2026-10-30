@@ -6,9 +6,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Local SQLite databases
+# Local SQLite databases & Round Archives
 *.sqlite3
 *.db
+archive/
 
 # Local environment variables
 .env

@@ -23,4 +23,5 @@ export const SubmitVoteRequestSchema = z.object({
     .max(500, "La justificación no puede exceder 500 caracteres")
     .optional()
     .default(""),
+  file: z.any().optional(),
 });

@@ -66,6 +66,12 @@ function handleReset() {
           <span class="text-slate-300 font-semibold shrink-0">POSICIÓN:</span>
           <span data-cy="receipt-composition" class="text-white font-bold truncate">{{ store.activeComposition.name }}</span>
         </div>
+        <div v-if="store.submittedVote.hasAttachment" class="flex items-center justify-between pb-2 border-b border-slate-800 gap-2">
+          <span class="text-slate-300 font-semibold shrink-0">ADJUNTO:</span>
+          <span data-cy="receipt-attachment" class="text-emerald-400 font-bold truncate">
+            ✓ {{ store.submittedVote.attachmentFilename || 'Propuesta recibida' }}
+          </span>
+        </div>
         <div class="flex items-center justify-between">
           <span class="text-slate-300 font-semibold">FECHA:</span>
           <span class="text-slate-300 text-[11px]">{{ new Date(store.submittedVote.timestamp).toLocaleDateString('es-MX') }}</span>

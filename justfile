@@ -27,6 +27,16 @@ iterate-candidate cand:
 test-contrast:
     {{python}} build.py --contrast
 
+# Archive voting round data (copies database snapshot and exports JSON report to backend/archive/)
+archive-round round="1":
+    cd backend && uv run python scripts/archive_round.py --round {{round}}
+
+# Reset production database for a new round (archives current round first, then removes voting.db)
+reset-db round="1":
+    @just archive-round {{round}}
+    @rm -f backend/voting.db backend/app/voting.db
+    @echo "  Production database reset: ready for the next round."
+
 # Run vector quality audit and verify documentation link/image integrity
 test-unit:
     {{python}} build.py --audit

@@ -22,6 +22,8 @@ export const VoteReceiptResponseSchema = z.object({
   timestamp: z.string(),
   round: z.number().int().default(1),
   verification_hash: z.string(),
+  has_attachment: z.boolean().default(false),
+  attachment_filename: z.string().nullable().optional(),
 });
 
 export const VotingStatsResponseSchema = z.object({

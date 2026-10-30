@@ -83,7 +83,7 @@ describe('API & Zod Schemas Validation', () => {
   });
 
   describe('VoteReceiptResponseSchema', () => {
-    it('parses receipt with verification hash', () => {
+    it('parses receipt with verification hash and optional attachment info', () => {
       const receipt = {
         receipt_id: 'VOTE-20261029-A1B2C3D4',
         student_id: '20260001',
@@ -94,10 +94,14 @@ describe('API & Zod Schemas Validation', () => {
         timestamp: '2026-10-29T21:00:00Z',
         round: 1,
         verification_hash: 'sha256:abcdef1234567890',
+        has_attachment: true,
+        attachment_filename: 'proposal.pdf',
       };
       const parsed = VoteReceiptResponseSchema.parse(receipt);
       assert.equal(parsed.receipt_id, 'VOTE-20261029-A1B2C3D4');
       assert.equal(parsed.round, 1);
+      assert.equal(parsed.has_attachment, true);
+      assert.equal(parsed.attachment_filename, 'proposal.pdf');
     });
   });
 
