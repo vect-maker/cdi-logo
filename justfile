@@ -33,11 +33,11 @@ test-e2e-gui *args="":
 
 # Run Cypress E2E directly on the host using local node_modules
 test-e2e-local *args="":
-    cd frontend && npx cypress run {{args}}
+    cd frontend && npx cypress run --spec "cypress/e2e/**/*.cy.ts" {{args}}
 
 # Capture high-fidelity screenshots of all voting wizard steps using Cypress
 capture-screenshots:
-    cd frontend && npx cypress run --headed --spec cypress/e2e/capture-screenshots.cy.ts
+    cd frontend && npx cypress run --headed --spec "cypress/visual/capture-screenshots.cy.ts"
     @mkdir -p {{artifact_dir}}/screenshots
     @cp -f frontend/cypress/screenshots/capture-screenshots.cy.ts/*.png {{artifact_dir}}/screenshots/ 2>/dev/null || true
     @echo "  Screenshots captured and saved to frontend/cypress/screenshots/"

@@ -24,7 +24,7 @@ function handleBack() {
       <h2 class="text-xl sm:text-3xl font-extrabold text-slate-100 tracking-tight">
         Elige la Figura para el Logotipo
       </h2>
-      <p class="text-xs sm:text-sm text-slate-400 mt-1">
+      <p class="text-xs sm:text-sm text-slate-300 mt-1">
         Selecciona el símbolo que más te guste para representar a la carrera.
       </p>
     </div>
@@ -44,23 +44,23 @@ function handleBack() {
         ]"
       >
         <div class="flex items-center justify-between mb-2 sm:mb-3">
-          <span class="text-[11px] sm:text-xs font-mono text-slate-400">
+          <span class="text-[11px] sm:text-xs font-mono bg-slate-800/90 border border-slate-700 text-slate-300 px-2 py-0.5 rounded">
             Opción {{ fig.slot }}
           </span>
 
           <div
-            class="w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center transition-colors"
+            class="w-5 h-5 rounded-full flex items-center justify-center transition-all"
             :class="[
               store.selectedFigure === fig.id
-                ? 'bg-blue-600 text-white'
-                : 'border border-slate-700 text-transparent'
+                ? 'bg-blue-600 text-white border-2 border-blue-400 shadow-sm'
+                : 'border-2 border-slate-600 bg-slate-900/80 text-transparent'
             ]"
           >
-            <CheckCircle2 class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2]" />
+            <CheckCircle2 class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
           </div>
         </div>
 
-        <div class="w-full aspect-square max-h-32 sm:max-h-44 rounded-lg sm:rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center p-3 sm:p-5 mb-2.5 sm:mb-3">
+        <div class="w-full aspect-square max-h-32 sm:max-h-44 rounded-lg sm:rounded-xl bg-slate-950 border border-slate-800/80 flex items-center justify-center p-3 sm:p-5 mb-2.5 sm:mb-3 shadow-inner">
           <img
             :src="fig.svgPath(store.selectedPalette)"
             :alt="fig.name"
@@ -70,10 +70,10 @@ function handleBack() {
         </div>
 
         <div>
-          <h3 data-cy="figure-name" class="text-xs sm:text-base font-semibold text-slate-100 truncate">
+          <h3 data-cy="figure-name" class="text-xs sm:text-base font-bold text-slate-100 truncate">
             {{ fig.name }}
           </h3>
-          <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5 line-clamp-1 sm:line-clamp-none">
+          <p class="text-[11px] sm:text-xs text-slate-300 mt-0.5 line-clamp-1 sm:line-clamp-none">
             {{ fig.subtitle }}
           </p>
         </div>

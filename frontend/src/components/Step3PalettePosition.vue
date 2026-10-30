@@ -28,7 +28,7 @@ function handleBack() {
       <h2 class="text-xl sm:text-3xl font-extrabold text-slate-100 tracking-tight">
         Elige el Color y la Posición
       </h2>
-      <p class="text-xs sm:text-sm text-slate-400 mt-1">
+      <p class="text-xs sm:text-sm text-slate-300 mt-1">
         Selecciona la combinación de colores y cómo te gustaría que se acomode el logotipo.
       </p>
     </div>
@@ -43,7 +43,7 @@ function handleBack() {
       <div class="order-2 lg:order-1 lg:col-span-7 space-y-5 sm:space-y-6">
         <!-- Palette Picker -->
         <div>
-          <div class="flex items-center gap-2 mb-2.5 sm:mb-3 text-xs font-mono uppercase tracking-wider text-slate-300 font-bold">
+          <div class="flex items-center gap-2 mb-2.5 sm:mb-3 text-xs font-mono uppercase tracking-wider text-slate-200 font-bold">
             <Palette class="w-4 h-4 text-blue-400" />
             <span>Colores</span>
           </div>
@@ -62,31 +62,31 @@ function handleBack() {
               ]"
             >
               <div class="flex items-center justify-between gap-1.5">
-                <div class="flex items-center gap-2 min-w-0">
+                <div class="flex items-center gap-2.5 min-w-0">
                   <div class="flex items-center -space-x-1 shrink-0">
                     <span
-                      class="w-4 h-4 sm:w-5 sm:h-5 rounded-full border border-slate-700 shadow-sm"
+                      class="w-5 h-5 rounded-full border-2 border-slate-900 shadow-md"
                       :style="{ backgroundColor: pal.primaryHex }"
                     />
                     <span
-                      class="w-4 h-4 sm:w-5 sm:h-5 rounded-full border border-slate-700 shadow-sm"
+                      class="w-5 h-5 rounded-full border-2 border-slate-900 shadow-md"
                       :style="{ backgroundColor: pal.secondaryHex }"
                     />
                   </div>
-                  <span class="text-xs sm:text-sm font-semibold text-slate-100 truncate">
+                  <span class="text-xs sm:text-sm font-bold text-slate-100 truncate">
                     {{ pal.name }}
                   </span>
                 </div>
 
                 <div
-                  class="w-4 h-4 rounded-full flex items-center justify-center shrink-0 transition-colors"
+                  class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all"
                   :class="[
                     store.selectedPalette === pal.id
-                      ? 'bg-blue-600 text-white'
-                      : 'border border-slate-700 text-transparent'
+                      ? 'bg-blue-600 text-white border-2 border-blue-400 shadow-sm'
+                      : 'border-2 border-slate-600 bg-slate-900/80 text-transparent'
                   ]"
                 >
-                  <Check class="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]" />
+                  <Check class="w-3 h-3 stroke-[3]" />
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@ function handleBack() {
 
         <!-- Composition Picker -->
         <div>
-          <div class="flex items-center gap-2 mb-2.5 sm:mb-3 text-xs font-mono uppercase tracking-wider text-slate-300 font-bold">
+          <div class="flex items-center gap-2 mb-2.5 sm:mb-3 text-xs font-mono uppercase tracking-wider text-slate-200 font-bold">
             <Layers class="w-4 h-4 text-blue-400" />
             <span>Posición y Formato</span>
           </div>
@@ -115,23 +115,23 @@ function handleBack() {
             >
               <div class="flex items-center justify-between">
                 <div>
-                  <h4 class="text-xs sm:text-sm font-semibold text-slate-100">
+                  <h4 class="text-xs sm:text-sm font-bold text-slate-100">
                     {{ comp.name }}
                   </h4>
-                  <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5">
+                  <p class="text-[11px] sm:text-xs text-slate-300 mt-0.5">
                     {{ comp.subtitle }}
                   </p>
                 </div>
 
                 <div
-                  class="w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center shrink-0 transition-colors"
+                  class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all"
                   :class="[
                     store.selectedComposition === comp.id
-                      ? 'bg-blue-600 text-white'
-                      : 'border border-slate-700 text-transparent'
+                      ? 'bg-blue-600 text-white border-2 border-blue-400 shadow-sm'
+                      : 'border-2 border-slate-600 bg-slate-900/80 text-transparent'
                   ]"
                 >
-                  <CheckCircle2 class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2]" />
+                  <CheckCircle2 class="w-3.5 h-3.5 stroke-[2.5]" />
                 </div>
               </div>
             </div>

@@ -19,7 +19,7 @@ function handleBack() {
       <h2 class="text-xl sm:text-3xl font-extrabold text-slate-100 tracking-tight">
         Confirma tu Selección
       </h2>
-      <p class="text-xs sm:text-sm text-slate-400 mt-1">
+      <p class="text-xs sm:text-sm text-slate-300 mt-1">
         Revisa las opciones que elegiste antes de registrar tu voto.
       </p>
     </div>
@@ -28,7 +28,7 @@ function handleBack() {
     <div class="solid-panel rounded-2xl sm:rounded-3xl p-4 sm:p-8 mb-5 sm:mb-6 border border-slate-800 shadow-xl space-y-4 sm:space-y-5">
       <!-- Student Code -->
       <div class="flex items-center justify-between pb-3 sm:pb-4 border-b border-slate-800">
-        <span class="text-[11px] sm:text-xs font-mono text-slate-400 uppercase">
+        <span class="text-xs font-mono text-slate-300 uppercase tracking-wider font-semibold">
           Código de Estudiante
         </span>
         <span data-cy="summary-student-code" class="text-base sm:text-lg font-mono font-bold text-blue-400 tracking-wider">
@@ -38,46 +38,46 @@ function handleBack() {
 
       <!-- Choices Summary Rows -->
       <div class="space-y-2.5 sm:space-y-3 font-mono text-xs">
-        <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 gap-2">
+        <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-slate-900/90 border border-slate-800 gap-2">
           <div class="flex items-center gap-2 sm:gap-3 min-w-0">
-            <span class="text-slate-400 shrink-0">Figura:</span>
-            <span data-cy="summary-figure-name" class="text-slate-100 font-bold truncate">{{ store.activeFigure.name }}</span>
+            <span class="text-slate-300 shrink-0 font-medium">Figura:</span>
+            <span data-cy="summary-figure-name" class="text-white font-bold truncate">{{ store.activeFigure.name }}</span>
           </div>
           <button
             type="button"
             data-cy="change-figure-btn"
             @click="store.goToStep(2)"
-            class="text-blue-400 hover:underline shrink-0 text-xs px-1 py-0.5"
+            class="btn-secondary text-xs px-2.5 py-1 rounded-lg shrink-0 font-mono active:scale-95 transition-all"
           >
             Cambiar
           </button>
         </div>
 
-        <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 gap-2">
+        <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-slate-900/90 border border-slate-800 gap-2">
           <div class="flex items-center gap-2 sm:gap-3 min-w-0">
-            <span class="text-slate-400 shrink-0">Color:</span>
-            <span data-cy="summary-palette-name" class="text-slate-100 font-bold truncate">{{ store.activePalette.name }}</span>
+            <span class="text-slate-300 shrink-0 font-medium">Color:</span>
+            <span data-cy="summary-palette-name" class="text-white font-bold truncate">{{ store.activePalette.name }}</span>
           </div>
           <button
             type="button"
             data-cy="change-palette-btn"
             @click="store.goToStep(3)"
-            class="text-blue-400 hover:underline shrink-0 text-xs px-1 py-0.5"
+            class="btn-secondary text-xs px-2.5 py-1 rounded-lg shrink-0 font-mono active:scale-95 transition-all"
           >
             Cambiar
           </button>
         </div>
 
-        <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 gap-2">
+        <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-slate-900/90 border border-slate-800 gap-2">
           <div class="flex items-center gap-2 sm:gap-3 min-w-0">
-            <span class="text-slate-400 shrink-0">Posición:</span>
-            <span data-cy="summary-composition-name" class="text-slate-100 font-bold truncate">{{ store.activeComposition.name }}</span>
+            <span class="text-slate-300 shrink-0 font-medium">Posición:</span>
+            <span data-cy="summary-composition-name" class="text-white font-bold truncate">{{ store.activeComposition.name }}</span>
           </div>
           <button
             type="button"
             data-cy="change-composition-btn"
             @click="store.goToStep(3)"
-            class="text-blue-400 hover:underline shrink-0 text-xs px-1 py-0.5"
+            class="btn-secondary text-xs px-2.5 py-1 rounded-lg shrink-0 font-mono active:scale-95 transition-all"
           >
             Cambiar
           </button>
@@ -85,7 +85,7 @@ function handleBack() {
       </div>
 
       <!-- Live Vector Preview Box -->
-      <div class="w-full aspect-video max-h-36 sm:max-h-44 rounded-xl sm:rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center p-3 sm:p-4">
+      <div class="w-full aspect-video max-h-36 sm:max-h-44 rounded-xl sm:rounded-2xl bg-slate-950 border border-slate-800/80 flex items-center justify-center p-3 sm:p-4 shadow-inner">
         <img
           data-cy="summary-preview-img"
           :src="store.currentAssetUrl"
@@ -96,7 +96,7 @@ function handleBack() {
 
       <!-- Textarea for Student Recommendations -->
       <div class="pt-1 sm:pt-2">
-        <label for="recommendations" class="block text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold mb-2 flex items-center gap-1.5">
+        <label for="recommendations" class="block text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold mb-2 flex items-center gap-1.5">
           <MessageSquare class="w-3.5 h-3.5 text-blue-400" />
           <span>Comentarios o sugerencias (Opcional)</span>
         </label>
@@ -106,7 +106,7 @@ function handleBack() {
           v-model="store.recommendations"
           rows="3"
           placeholder="Escribe alguna sugerencia o comentario..."
-          class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 bg-slate-900 border border-slate-700 rounded-xl text-base sm:text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors font-sans"
+          class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 bg-slate-950 border border-slate-700 rounded-xl text-base sm:text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-sans"
         />
       </div>
     </div>

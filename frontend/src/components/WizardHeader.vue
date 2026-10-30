@@ -25,16 +25,16 @@ const steps = [
             <h1 data-cy="header-title" class="text-xs sm:text-base font-bold text-slate-100 tracking-tight leading-tight truncate">
               Votación de Logotipo Oficial
             </h1>
-            <p class="text-[11px] sm:text-xs text-slate-400 truncate">
+            <p class="text-[11px] sm:text-xs text-slate-300 truncate">
               <span class="hidden sm:inline">Ingeniería en Ciencias de Datos · Ciencias Básicas y Tecnología</span>
               <span class="sm:hidden">Ingeniería en Ciencias de Datos</span>
             </p>
           </div>
         </div>
 
-        <div v-if="store.studentCode && store.isCodeValid" data-cy="header-student-badge" class="flex items-center gap-1.5 bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1 text-xs font-mono shrink-0">
-          <span class="text-slate-400 hidden sm:inline">Estudiante:</span>
-          <span data-cy="header-student-code" class="font-bold text-blue-400 font-mono">{{ store.studentCode }}</span>
+        <div v-if="store.studentCode && store.isCodeValid" data-cy="header-student-badge" class="flex items-center gap-1.5 bg-slate-800/90 border border-slate-700 rounded-lg px-2.5 py-1 text-xs font-mono shrink-0 shadow-sm">
+          <span class="text-slate-300 hidden sm:inline">Estudiante:</span>
+          <span data-cy="header-student-code" class="font-bold text-blue-400 font-mono tracking-wider">{{ store.studentCode }}</span>
         </div>
       </div>
 
@@ -62,10 +62,10 @@ const steps = [
                 class="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center font-mono text-[11px] sm:text-xs font-bold shrink-0 transition-all"
                 :class="[
                   s.num === store.currentStep
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-blue-600 text-white ring-2 ring-blue-500/50 shadow-sm'
                     : s.num < store.currentStep
-                    ? 'bg-blue-950 text-blue-300 border border-blue-600/50'
-                    : 'bg-slate-800 text-slate-500 border border-slate-700'
+                    ? 'bg-blue-950 text-blue-300 border border-blue-500/80 font-bold'
+                    : 'bg-slate-800 text-slate-400 border border-slate-700'
                 ]"
               >
                 <Check v-if="s.num < store.currentStep" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3]" />
@@ -74,20 +74,20 @@ const steps = [
 
               <span
                 class="hidden md:inline text-xs font-medium truncate"
-                :class="s.num === store.currentStep ? 'text-blue-400 font-semibold' : s.num < store.currentStep ? 'text-slate-200' : 'text-slate-500'"
+                :class="s.num === store.currentStep ? 'text-blue-400 font-semibold' : s.num < store.currentStep ? 'text-slate-200' : 'text-slate-400'"
               >
                 {{ s.label }}
               </span>
             </button>
 
             <div
-              class="h-0.5 sm:h-1 w-full rounded-full mt-1 sm:mt-1.5 transition-all"
+              class="w-full rounded-full mt-1 sm:mt-1.5 transition-all"
               :class="[
                 s.num === store.currentStep
-                  ? 'bg-blue-500'
+                  ? 'bg-blue-500 h-1'
                   : s.num < store.currentStep
-                  ? 'bg-blue-800'
-                  : 'bg-slate-800'
+                  ? 'bg-blue-700 h-0.5 sm:h-1'
+                  : 'bg-slate-800 h-0.5'
               ]"
             />
           </li>
