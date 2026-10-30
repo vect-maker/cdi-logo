@@ -1,17 +1,35 @@
 <script setup lang="ts">
 import { useVotingStore } from './stores/votingStore'
+import { useServerWakeup } from './composables/useServerWakeup'
 import WizardHeader from './components/WizardHeader.vue'
 import Step1Identification from './components/Step1Identification.vue'
 import Step2FigureSelection from './components/Step2FigureSelection.vue'
 import Step3PalettePosition from './components/Step3PalettePosition.vue'
 import Step4Confirmation from './components/Step4Confirmation.vue'
 import ReceiptModal from './components/ReceiptModal.vue'
+import ServerWakeupOverlay from './components/ServerWakeupOverlay.vue'
 
 const store = useVotingStore()
+const {
+  status: wakeupStatus,
+  isOverlayVisible,
+  elapsedSeconds,
+  attempts,
+  retry: retryWakeup,
+} = useServerWakeup()
 </script>
 
 <template>
   <div class="min-h-screen bg-[#0b1120] text-slate-100 flex flex-col relative selection:bg-blue-600 selection:text-white">
+    <!-- Server Wake-Up / Cold-Start Loading Screen (debounced to avoid flash if server is ready) -->
+    <ServerWakeupOverlay
+      v-if="isOverlayVisible && wakeupStatus !== 'ready'"
+      :status="wakeupStatus"
+      :elapsed-seconds="elapsedSeconds"
+      :attempts="attempts"
+      @retry="retryWakeup"
+    />
+
     <!-- Fixed Header Bar -->
     <WizardHeader />
 
@@ -29,6 +47,15 @@ const store = useVotingStore()
 </template>
 
 <style scoped>
+.fade-overlay-leave-active {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.fade-overlay-leave-to {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
 .fade-step-enter-active,
 .fade-step-leave-active {
   transition: opacity 0.2s ease, transform 0.2s ease;

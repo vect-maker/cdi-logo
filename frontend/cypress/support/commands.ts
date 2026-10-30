@@ -14,6 +14,8 @@ declare global {
 }
 
 Cypress.Commands.add('waitForAppReady', () => {
+  // If server-wakeup-overlay is present, wait for it to disappear
+  cy.get('[data-cy="server-wakeup-overlay"]', { timeout: 15000 }).should('not.exist')
   cy.get('[data-cy="stepper-nav"]', { timeout: 10000 }).should('be.visible')
   cy.get('[data-cy="student-code-input"]', { timeout: 10000 }).should('be.visible')
 })
