@@ -64,6 +64,23 @@ frontend-sync:
     @rm -rf frontend/public/candidates/__pycache__
     @echo "  Synchronized candidates assets to frontend/public/candidates/"
 
+# Setup backend Python virtual environment and dependencies using uv
+backend-setup:
+    cd backend && uv venv && uv pip install "fastapi[standard]" "libsql" "pydantic-settings"
+    @just backend-requirements
+
+# Generate or update locked backend requirements.txt using uv pip compile
+backend-requirements:
+    cd backend && uv pip compile pyproject.toml -o requirements.txt
+
+# Start backend FastAPI development server on port 8000
+backend-dev *args="--port 8000 --host 0.0.0.0":
+    cd backend && uv run uvicorn app.main:app --reload {{args}}
+
+# Run backend unit verification on /health endpoint
+backend-test:
+    cd backend && uv run python -c "from fastapi.testclient import TestClient; from app.main import app; c = TestClient(app); r = c.get('/health'); assert r.status_code == 200, f'Status: {r.status_code}'; assert r.json()['status'] == 'ok'; print('  FastAPI /health check: 100% PASS')"
+
 # Build the frontend production bundle (type check + vite build)
 frontend-build: frontend-sync
     cd frontend && npm run build
