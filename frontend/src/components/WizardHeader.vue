@@ -22,12 +22,17 @@ const steps = [
             ICD
           </div>
           <div class="min-w-0">
-            <h1 data-cy="header-title" class="text-xs sm:text-base font-bold text-slate-100 tracking-tight leading-tight truncate">
-              Votación de Logotipo Oficial
-            </h1>
+            <div class="flex items-center gap-1.5 min-w-0">
+              <h1 data-cy="header-title" class="text-xs sm:text-base font-bold text-slate-100 tracking-tight leading-tight truncate">
+                Votación de Logotipo Oficial
+              </h1>
+              <span class="bg-blue-950 text-blue-300 border border-blue-500/50 text-[10px] sm:text-xs font-mono px-1.5 py-0.2 rounded font-semibold shrink-0">
+                Ronda 1
+              </span>
+            </div>
             <p class="text-[11px] sm:text-xs text-slate-300 truncate">
-              <span class="hidden sm:inline">Ingeniería en Ciencias de Datos · Ciencias Básicas y Tecnología</span>
-              <span class="sm:hidden">Ingeniería en Ciencias de Datos</span>
+              <span class="hidden sm:inline">Ingeniería en Ciencias de Datos · 1 voto por estudiante · Enfoque iterativo</span>
+              <span class="sm:hidden">ICD · 1 voto por estudiante · Iterativo</span>
             </p>
           </div>
         </div>

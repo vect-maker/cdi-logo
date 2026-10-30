@@ -27,6 +27,7 @@ export interface FabricColor {
 }
 
 export interface StudentVote {
+  round: string
   studentCode: string
   figureId: string
   paletteId: string

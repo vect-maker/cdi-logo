@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useVotingStore } from '../stores/votingStore'
-import { ArrowLeft, MessageSquare, Send } from '@lucide/vue'
+import { ArrowLeft, MessageSquare, Send, ShieldAlert } from '@lucide/vue'
 
 const store = useVotingStore()
 
@@ -108,6 +108,17 @@ function handleBack() {
           placeholder="Escribe alguna sugerencia o comentario..."
           class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 bg-slate-950 border border-slate-700 rounded-xl text-base sm:text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-sans"
         />
+      </div>
+
+      <!-- Single Vote & Iterative Round Notice -->
+      <div class="p-3.5 rounded-xl bg-blue-950/40 border border-blue-500/30 text-xs text-slate-300 space-y-1">
+        <div class="flex items-center gap-1.5 font-bold text-blue-300">
+          <ShieldAlert class="w-4 h-4 text-blue-400 shrink-0" />
+          <span>Voto Único e Intransferible · Ronda 1</span>
+        </div>
+        <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed font-sans">
+          Cada estudiante dispone de <strong>un solo voto</strong> en esta Ronda 1. Una vez enviado, se emitirá tu comprobante digital y tu elección será contabilizada para definir los finalistas de la siguiente iteración.
+        </p>
       </div>
     </div>
 

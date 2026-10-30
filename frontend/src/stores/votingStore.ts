@@ -106,6 +106,7 @@ export const useVotingStore = defineStore('voting', () => {
     isSubmitting.value = true
     const now = new Date()
     const voteRecord: StudentVote = {
+      round: 'Ronda 1',
       studentCode: studentCode.value.trim(),
       figureId: selectedFigure.value,
       paletteId: selectedPalette.value,
