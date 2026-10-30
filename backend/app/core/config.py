@@ -6,6 +6,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     PROJECT_NAME: str = "ICD Logo Voting Backend"
     API_V1_PREFIX: str = "/api/v1"
+    HOST: str = "0.0.0.0"
+    PORT: int = 8000
     CORS_ORIGINS: list[str] = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
@@ -14,7 +16,8 @@ class Settings(BaseSettings):
     # Turso Database Settings
     TURSO_DATABASE_URL: str | None = None
     TURSO_AUTH_TOKEN: str | None = None
-    LOCAL_DB_PATH: str = "app/voting.db"
+    TURSO_EMBEDDED_REPLICA: bool = False
+    LOCAL_DB_PATH: str = "voting.db"
 
     model_config: ClassVar[SettingsConfigDict] = SettingsConfigDict(
         env_file=".env",

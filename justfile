@@ -109,6 +109,34 @@ backend-dev *args="--port 8000 --host 0.0.0.0":
 backend-container-build:
     podman compose build backend
 
+# Build and tag the backend production server image using Podman
+backend-prod-build tag="latest":
+    @echo "==> Building backend production server container image..."
+    podman build -t localhost/icd-voting-backend:prod backend
+    @echo "==> Tagging production image for Docker Hub (haterofvectors/icd-logo-votes)..."
+    podman tag localhost/icd-voting-backend:prod docker.io/haterofvectors/icd-logo-votes:latest
+    podman tag localhost/icd-voting-backend:prod docker.io/haterofvectors/icd-logo-votes:prod
+    podman tag localhost/icd-voting-backend:prod haterofvectors/icd-logo-votes:latest
+    podman tag localhost/icd-voting-backend:prod haterofvectors/icd-logo-votes:prod
+    @if [ "{{tag}}" != "latest" ] && [ "{{tag}}" != "prod" ]; then \
+        podman tag localhost/icd-voting-backend:prod docker.io/haterofvectors/icd-logo-votes:{{tag}}; \
+        podman tag localhost/icd-voting-backend:prod haterofvectors/icd-logo-votes:{{tag}}; \
+    fi
+    @echo "  Backend production image successfully built and tagged."
+
+# Build, tag, and upload backend production server image to Docker Hub (haterofvectors/icd-logo-votes)
+backend-prod-push tag="latest": (backend-prod-build tag)
+    @echo "==> Uploading image to Docker Hub (haterofvectors/icd-logo-votes)..."
+    podman push docker.io/haterofvectors/icd-logo-votes:latest
+    podman push docker.io/haterofvectors/icd-logo-votes:prod
+    @if [ "{{tag}}" != "latest" ] && [ "{{tag}}" != "prod" ]; then \
+        podman push docker.io/haterofvectors/icd-logo-votes:{{tag}}; \
+    fi
+    @echo "  Successfully uploaded haterofvectors/icd-logo-votes to Docker Hub."
+
+alias backend-push := backend-prod-push
+alias push-prod := backend-prod-push
+
 # Run backend development container with hot-reloading mounted volume
 backend-container-up:
     podman compose up -d backend

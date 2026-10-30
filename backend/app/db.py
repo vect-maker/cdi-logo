@@ -36,13 +36,19 @@ def create_db_engine():
     auth_token = settings.TURSO_AUTH_TOKEN
 
     if turso_url and turso_url.startswith(("libsql://", "https://")) and auth_token:
-        # Turso Cloud via official libSQL client (with optional local replica syncing)
+        # Turso Cloud via official libSQL client (direct remote connection by default)
         def connect_turso() -> LibsqlConnectionProxy:
-            raw_conn = cast(Any, libsql).connect(
-                settings.LOCAL_DB_PATH,
-                sync_url=turso_url,
-                auth_token=auth_token,
-            )
+            if settings.TURSO_EMBEDDED_REPLICA:
+                raw_conn = cast(Any, libsql).connect(
+                    settings.LOCAL_DB_PATH,
+                    sync_url=turso_url,
+                    auth_token=auth_token,
+                )
+            else:
+                raw_conn = cast(Any, libsql).connect(
+                    turso_url,
+                    auth_token=auth_token,
+                )
             return LibsqlConnectionProxy(raw_conn)
 
         return create_engine("sqlite://", creator=connect_turso)

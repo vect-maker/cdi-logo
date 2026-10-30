@@ -63,3 +63,7 @@ El proyecto cuenta con un conjunto integral de recetas automatizadas a través d
 - **`just backend-container-up`**: Inicia el backend containerizado con Podman Compose en `http://localhost:8000` con hot-reloading (`./backend/app:/app/app:z`).
 - **`just backend-container-down`**: Detiene el contenedor del backend.
 - **`just frontend-dev`**: Inicia el servidor de desarrollo Vite con soporte para HMR y proxy reverso hacia el backend.
+
+### Despliegue e Imágenes de Producción (Podman)
+- **`just backend-prod-build [tag="latest"]`**: Compila y etiqueta con Podman la imagen de producción del servidor (`latest`, `prod` y `[tag]`).
+- **`just backend-prod-push [tag="latest"]`** (alias: `just backend-push`, `just push-prod`): Garantiza la compilación del último build y lo sube directamente a Docker Hub (`haterofvectors/icd-logo-votes`).

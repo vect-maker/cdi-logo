@@ -303,3 +303,9 @@ def get_voting_stats(session: Session = Depends(get_session)):
         "by_figure": by_figure,
         "with_attachments": with_attachments,
     }
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run("app.main:app", host=settings.HOST, port=settings.PORT, reload=False)

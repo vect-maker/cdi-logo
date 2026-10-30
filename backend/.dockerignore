@@ -1,0 +1,23 @@
+# Git & virtual environment
+.git/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Local SQLite databases & cache
+*.sqlite3
+*.db
+app/voting.db
+voting.db
+archive/
+
+# Caches & test artifacts
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
