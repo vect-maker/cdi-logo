@@ -34,6 +34,7 @@ function handleBack() {
       <div
         v-for="fig in CANDIDATE_FIGURES"
         :key="fig.id"
+        :data-cy="'figure-card-' + fig.id"
         @click="selectFigure(fig.id)"
         class="solid-card rounded-xl sm:rounded-2xl p-3 sm:p-4 cursor-pointer relative flex flex-col justify-between transition-all active:scale-[0.98]"
         :class="[
@@ -69,7 +70,7 @@ function handleBack() {
         </div>
 
         <div>
-          <h3 class="text-xs sm:text-base font-semibold text-slate-100 truncate">
+          <h3 data-cy="figure-name" class="text-xs sm:text-base font-semibold text-slate-100 truncate">
             {{ fig.name }}
           </h3>
           <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5 line-clamp-1 sm:line-clamp-none">
@@ -83,6 +84,7 @@ function handleBack() {
     <div class="flex items-center justify-between mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-800 gap-3">
       <button
         type="button"
+        data-cy="step2-back-btn"
         @click="handleBack"
         class="btn-secondary px-4 sm:px-5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 sm:gap-2 cursor-pointer shrink-0"
       >
@@ -92,6 +94,7 @@ function handleBack() {
 
       <button
         type="button"
+        data-cy="step2-next-btn"
         @click="handleNext"
         class="btn-primary px-4 sm:px-6 py-2.5 rounded-xl font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer shrink-0"
       >

@@ -22,7 +22,7 @@ const steps = [
             ICD
           </div>
           <div class="min-w-0">
-            <h1 class="text-xs sm:text-base font-bold text-slate-100 tracking-tight leading-tight truncate">
+            <h1 data-cy="header-title" class="text-xs sm:text-base font-bold text-slate-100 tracking-tight leading-tight truncate">
               Votación de Logotipo Oficial
             </h1>
             <p class="text-[11px] sm:text-xs text-slate-400 truncate">
@@ -32,9 +32,9 @@ const steps = [
           </div>
         </div>
 
-        <div v-if="store.studentCode && store.isCodeValid" class="flex items-center gap-1.5 bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1 text-xs font-mono shrink-0">
+        <div v-if="store.studentCode && store.isCodeValid" data-cy="header-student-badge" class="flex items-center gap-1.5 bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1 text-xs font-mono shrink-0">
           <span class="text-slate-400 hidden sm:inline">Estudiante:</span>
-          <span class="font-bold text-blue-400 font-mono">{{ store.studentCode }}</span>
+          <span data-cy="header-student-code" class="font-bold text-blue-400 font-mono">{{ store.studentCode }}</span>
         </div>
       </div>
 
@@ -48,6 +48,7 @@ const steps = [
           >
             <button
               type="button"
+              :data-cy="'step-indicator-' + s.num"
               :disabled="s.num > store.currentStep && !store.isCodeValid"
               @click="store.goToStep(s.num)"
               class="flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 text-left py-0.5 sm:py-1 transition-all focus:outline-none"

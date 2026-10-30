@@ -17,12 +17,10 @@ const store = useVotingStore()
 
     <!-- Main Wizard Content Canvas -->
     <main class="flex-1 max-w-6xl w-full mx-auto px-3 sm:px-6 pb-6 sm:pb-10 relative z-10">
-      <transition name="fade-step" mode="out-in">
-        <Step1Identification v-if="store.currentStep === 1" key="step1" />
-        <Step2FigureSelection v-else-if="store.currentStep === 2" key="step2" />
-        <Step3PalettePosition v-else-if="store.currentStep === 3" key="step3" />
-        <Step4Confirmation v-else-if="store.currentStep === 4" key="step4" />
-      </transition>
+      <Step1Identification v-if="store.currentStep === 1" key="step1" />
+      <Step2FigureSelection v-else-if="store.currentStep === 2" key="step2" />
+      <Step3PalettePosition v-else-if="store.currentStep === 3" key="step3" />
+      <Step4Confirmation v-else-if="store.currentStep === 4" key="step4" />
     </main>
 
     <!-- Success Modal Receipt -->

@@ -34,10 +34,12 @@ function handleReset() {
     class="fixed inset-0 z-50 flex items-center justify-center p-3.5 sm:p-4 bg-black/80"
   >
     <div
+      data-cy="receipt-modal"
       class="solid-panel w-full max-w-md rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-700 shadow-2xl relative overflow-hidden"
     >
       <button
         type="button"
+        data-cy="receipt-close-btn"
         @click="handleClose"
         class="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors"
       >
@@ -62,19 +64,19 @@ function handleReset() {
       <div class="bg-slate-950 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 border border-slate-800 space-y-2 font-mono text-xs my-4 sm:my-5">
         <div class="flex items-center justify-between pb-2 border-b border-slate-800">
           <span class="text-slate-400">ESTUDIANTE:</span>
-          <span class="text-blue-400 font-bold">{{ store.submittedVote.studentCode }}</span>
+          <span data-cy="receipt-student-code" class="text-blue-400 font-bold">{{ store.submittedVote.studentCode }}</span>
         </div>
         <div class="flex items-center justify-between pb-2 border-b border-slate-800 gap-2">
           <span class="text-slate-400 shrink-0">FIGURA:</span>
-          <span class="text-slate-200 font-semibold truncate">{{ store.activeFigure.name }}</span>
+          <span data-cy="receipt-figure" class="text-slate-200 font-semibold truncate">{{ store.activeFigure.name }}</span>
         </div>
         <div class="flex items-center justify-between pb-2 border-b border-slate-800 gap-2">
           <span class="text-slate-400 shrink-0">COLOR:</span>
-          <span class="text-slate-200 font-semibold truncate">{{ store.activePalette.name }}</span>
+          <span data-cy="receipt-palette" class="text-slate-200 font-semibold truncate">{{ store.activePalette.name }}</span>
         </div>
         <div class="flex items-center justify-between pb-2 border-b border-slate-800 gap-2">
           <span class="text-slate-400 shrink-0">POSICIÓN:</span>
-          <span class="text-slate-200 font-semibold truncate">{{ store.activeComposition.name }}</span>
+          <span data-cy="receipt-composition" class="text-slate-200 font-semibold truncate">{{ store.activeComposition.name }}</span>
         </div>
         <div class="flex items-center justify-between">
           <span class="text-slate-400">FECHA:</span>
@@ -86,6 +88,7 @@ function handleReset() {
       <div class="flex flex-col sm:flex-row items-center gap-2.5">
         <button
           type="button"
+          data-cy="download-receipt-btn"
           @click="downloadReceipt"
           class="w-full sm:flex-1 btn-primary min-h-[44px] py-2.5 sm:py-3 px-4 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
         >
@@ -95,6 +98,7 @@ function handleReset() {
 
         <button
           type="button"
+          data-cy="finish-vote-btn"
           @click="handleReset"
           class="w-full sm:w-auto btn-secondary min-h-[44px] px-4 py-2.5 sm:py-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 cursor-pointer"
         >

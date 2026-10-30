@@ -34,12 +34,13 @@ function handleContinue() {
 
             <input
               id="studentCode"
+              data-cy="student-code-input"
               v-model="store.studentCode"
               type="text"
               inputmode="numeric"
               pattern="[0-9]*"
-              maxlength="9"
-              placeholder="Ej: 219485732"
+              maxlength="8"
+              placeholder="Ej: 21948573"
               class="w-full pl-11 pr-20 py-3.5 bg-slate-900 border rounded-xl font-mono text-base sm:text-lg tracking-wider text-slate-100 placeholder:text-slate-600 focus:outline-none transition-colors"
               :class="[
                 store.codeError
@@ -52,16 +53,17 @@ function handleContinue() {
 
             <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
               <span
+                data-cy="student-code-counter"
                 class="text-xs font-mono"
-                :class="store.studentCode.length === 9 ? 'text-emerald-400 font-bold' : 'text-slate-500'"
+                :class="store.studentCode.length === 8 ? 'text-emerald-400 font-bold' : 'text-slate-500'"
               >
-                {{ store.studentCode.length }} / 9
+                {{ store.studentCode.length }} / 8
               </span>
             </div>
           </div>
 
           <!-- Error Feedback -->
-          <div v-if="store.codeError" class="mt-2.5 flex items-start gap-2 text-xs font-mono text-rose-400">
+          <div v-if="store.codeError" data-cy="student-code-error" class="mt-2.5 flex items-start gap-2 text-xs font-mono text-rose-400">
             <AlertCircle class="w-4 h-4 shrink-0 mt-0.5 text-rose-400" />
             <span>{{ store.codeError }}</span>
           </div>
@@ -69,6 +71,8 @@ function handleContinue() {
 
         <button
           type="submit"
+          data-cy="step1-continue-btn"
+          @click="handleContinue"
           :disabled="!store.isCodeValid"
           class="w-full btn-primary min-h-[48px] py-3.5 rounded-xl font-semibold text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-[0.99]"
         >

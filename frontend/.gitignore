@@ -23,6 +23,11 @@ coverage
 __pycache__
 *.py[cod]
 
+# Cypress Test Artifacts
+cypress/videos
+cypress/screenshots
+cypress/downloads
+
 # Editor Directories and System Files
 .vscode/*
 !.vscode/extensions.json

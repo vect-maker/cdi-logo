@@ -1,0 +1,37 @@
+services:
+  test-e2e:
+    image: docker.io/cypress/included:16.2.0
+    container_name: logo-cypress
+    network_mode: host
+    ipc: host
+    security_opt:
+      - label=disable
+    working_dir: /e2e
+    environment:
+      CYPRESS_baseUrl: http://localhost:5173
+    volumes:
+      - ./frontend:/e2e:z
+    profiles:
+      - test
+
+  test-e2e-gui:
+    image: docker.io/cypress/included:16.2.0
+    container_name: logo-cypress-gui
+    network_mode: host
+    ipc: host
+    security_opt:
+      - label=disable
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      CYPRESS_baseUrl: http://localhost:5173
+      DISPLAY: ${DISPLAY:-:0}
+      XAUTHORITY: /root/.Xauthority
+    volumes:
+      - ./frontend:/e2e:z
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - ${XAUTHORITY:-${HOME}/.Xauthority}:/root/.Xauthority:ro
+    working_dir: /e2e
+    entrypoint: ["cypress", "open", "--project", "."]
+    profiles:
+      - gui

@@ -52,6 +52,7 @@ function handleBack() {
             <div
               v-for="pal in COLOR_PALETTES"
               :key="pal.id"
+              :data-cy="'palette-option-' + pal.id"
               @click="store.selectedPalette = pal.id"
               class="solid-card rounded-xl sm:rounded-2xl p-3 sm:p-3.5 cursor-pointer relative transition-all active:scale-[0.98]"
               :class="[
@@ -103,6 +104,7 @@ function handleBack() {
             <div
               v-for="comp in COMPOSITION_TYPES"
               :key="comp.id"
+              :data-cy="'comp-option-' + comp.id"
               @click="store.selectedComposition = comp.id"
               class="solid-card rounded-xl sm:rounded-2xl p-3 sm:p-3.5 cursor-pointer relative transition-all active:scale-[0.99]"
               :class="[
@@ -142,6 +144,7 @@ function handleBack() {
     <div class="flex items-center justify-between mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-800 gap-3">
       <button
         type="button"
+        data-cy="step3-back-btn"
         @click="handleBack"
         class="btn-secondary px-4 sm:px-5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 sm:gap-2 cursor-pointer shrink-0"
       >
@@ -151,6 +154,7 @@ function handleBack() {
 
       <button
         type="button"
+        data-cy="step3-next-btn"
         @click="handleNext"
         class="btn-primary px-5 sm:px-6 py-2.5 rounded-xl font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer shrink-0"
       >

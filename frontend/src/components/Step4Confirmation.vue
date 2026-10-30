@@ -31,7 +31,7 @@ function handleBack() {
         <span class="text-[11px] sm:text-xs font-mono text-slate-400 uppercase">
           Código de Estudiante
         </span>
-        <span class="text-base sm:text-lg font-mono font-bold text-blue-400 tracking-wider">
+        <span data-cy="summary-student-code" class="text-base sm:text-lg font-mono font-bold text-blue-400 tracking-wider">
           {{ store.studentCode }}
         </span>
       </div>
@@ -41,10 +41,11 @@ function handleBack() {
         <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 gap-2">
           <div class="flex items-center gap-2 sm:gap-3 min-w-0">
             <span class="text-slate-400 shrink-0">Figura:</span>
-            <span class="text-slate-100 font-bold truncate">{{ store.activeFigure.name }}</span>
+            <span data-cy="summary-figure-name" class="text-slate-100 font-bold truncate">{{ store.activeFigure.name }}</span>
           </div>
           <button
             type="button"
+            data-cy="change-figure-btn"
             @click="store.goToStep(2)"
             class="text-blue-400 hover:underline shrink-0 text-xs px-1 py-0.5"
           >
@@ -55,10 +56,11 @@ function handleBack() {
         <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 gap-2">
           <div class="flex items-center gap-2 sm:gap-3 min-w-0">
             <span class="text-slate-400 shrink-0">Color:</span>
-            <span class="text-slate-100 font-bold truncate">{{ store.activePalette.name }}</span>
+            <span data-cy="summary-palette-name" class="text-slate-100 font-bold truncate">{{ store.activePalette.name }}</span>
           </div>
           <button
             type="button"
+            data-cy="change-palette-btn"
             @click="store.goToStep(3)"
             class="text-blue-400 hover:underline shrink-0 text-xs px-1 py-0.5"
           >
@@ -69,10 +71,11 @@ function handleBack() {
         <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 gap-2">
           <div class="flex items-center gap-2 sm:gap-3 min-w-0">
             <span class="text-slate-400 shrink-0">Posición:</span>
-            <span class="text-slate-100 font-bold truncate">{{ store.activeComposition.name }}</span>
+            <span data-cy="summary-composition-name" class="text-slate-100 font-bold truncate">{{ store.activeComposition.name }}</span>
           </div>
           <button
             type="button"
+            data-cy="change-composition-btn"
             @click="store.goToStep(3)"
             class="text-blue-400 hover:underline shrink-0 text-xs px-1 py-0.5"
           >
@@ -84,6 +87,7 @@ function handleBack() {
       <!-- Live Vector Preview Box -->
       <div class="w-full aspect-video max-h-36 sm:max-h-44 rounded-xl sm:rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center p-3 sm:p-4">
         <img
+          data-cy="summary-preview-img"
           :src="store.currentAssetUrl"
           :alt="store.activeFigure.name"
           class="max-h-24 sm:max-h-32 max-w-full object-contain filter drop-shadow-md"
@@ -98,6 +102,7 @@ function handleBack() {
         </label>
         <textarea
           id="recommendations"
+          data-cy="recommendations-textarea"
           v-model="store.recommendations"
           rows="3"
           placeholder="Escribe alguna sugerencia o comentario..."
@@ -110,6 +115,7 @@ function handleBack() {
     <div class="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3">
       <button
         type="button"
+        data-cy="step4-back-btn"
         @click="handleBack"
         class="btn-secondary min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer"
       >
@@ -119,6 +125,7 @@ function handleBack() {
 
       <button
         type="button"
+        data-cy="submit-vote-btn"
         :disabled="store.isSubmitting"
         @click="handleSubmit"
         class="btn-primary min-h-[48px] px-7 py-3 rounded-xl font-bold text-sm tracking-wide flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-[0.99]"

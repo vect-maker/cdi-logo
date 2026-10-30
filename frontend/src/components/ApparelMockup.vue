@@ -37,6 +37,7 @@ const logoContainerClasses = computed(() => {
         <button
           v-for="fabric in FABRIC_COLORS"
           :key="fabric.id"
+          :data-cy="'fabric-btn-' + fabric.id"
           type="button"
           @click="store.selectedFabric = fabric.id"
           class="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-mono transition-colors"
@@ -57,6 +58,7 @@ const logoContainerClasses = computed(() => {
 
     <!-- Clean Background Canvas Preview -->
     <div
+      data-cy="preview-canvas"
       class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-lg sm:rounded-xl flex items-center justify-center p-4 sm:p-8 transition-colors duration-150 overflow-hidden border border-slate-800"
       :style="{ backgroundColor: currentFabric.hex }"
     >
@@ -67,6 +69,7 @@ const logoContainerClasses = computed(() => {
       >
         <img
           :key="store.currentAssetUrl"
+          data-cy="preview-logo-img"
           :src="store.currentAssetUrl"
           :alt="store.activeFigure.name"
           class="w-full h-full object-contain pointer-events-none select-none"

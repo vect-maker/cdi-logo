@@ -12,7 +12,7 @@ import {
 const StudentCodeSchema = z
   .string()
   .trim()
-  .regex(/^\d{9}$/, 'El código debe tener exactamente 9 dígitos numéricos')
+  .regex(/^\d{8}$/, 'El código debe tener exactamente 8 dígitos numéricos')
 
 export const useVotingStore = defineStore('voting', () => {
   const currentStep = ref<1 | 2 | 3 | 4>(1)
@@ -30,7 +30,7 @@ export const useVotingStore = defineStore('voting', () => {
   const showReceiptModal = ref(false)
 
   const isCodeValid = computed(() => {
-    return /^\d{9}$/.test(studentCode.value.trim())
+    return /^\d{8}$/.test(studentCode.value.trim())
   })
 
   const activeFigure = computed(() => {
@@ -89,7 +89,7 @@ export const useVotingStore = defineStore('voting', () => {
 
   function goToStep(step: 1 | 2 | 3 | 4) {
     if (step > 1 && !isCodeValid.value) {
-      codeError.value = 'Debes ingresar un código válido de 9 dígitos para continuar'
+      codeError.value = 'Debes ingresar un código válido de 8 dígitos para continuar'
       currentStep.value = 1
       return
     }

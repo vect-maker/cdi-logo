@@ -64,6 +64,9 @@ dist-ssr/
 *.local
 .env*.local
 .vite/
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
 
 # Logs
 logs/
