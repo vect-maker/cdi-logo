@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     # Turso Database Settings
     TURSO_DATABASE_URL: str | None = None
     TURSO_AUTH_TOKEN: str | None = None
-    LOCAL_DB_PATH: str = "voting.db"
+    LOCAL_DB_PATH: str = "app/voting.db"
 
     model_config: ClassVar[SettingsConfigDict] = SettingsConfigDict(
         env_file=".env",

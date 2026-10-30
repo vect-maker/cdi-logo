@@ -66,10 +66,6 @@ function handleReset() {
       <!-- Summary -->
       <div class="bg-slate-950 rounded-xl sm:rounded-2xl p-4 border border-slate-800 space-y-2.5 font-mono text-xs my-4 sm:my-5 shadow-inner">
         <div class="flex items-center justify-between pb-2 border-b border-slate-800">
-          <span class="text-slate-300 font-semibold">RONDA:</span>
-          <span data-cy="receipt-round" class="text-blue-400 font-bold">1 (Fase Inicial Iterativa)</span>
-        </div>
-        <div class="flex items-center justify-between pb-2 border-b border-slate-800">
           <span class="text-slate-300 font-semibold">ESTUDIANTE:</span>
           <span data-cy="receipt-student-code" class="text-blue-400 font-bold tracking-wider">{{ store.submittedVote.studentCode }}</span>
         </div>
@@ -91,9 +87,9 @@ function handleReset() {
         </div>
       </div>
 
-      <!-- Iterative Process Note -->
+      <!-- Confirmation Note -->
       <p class="text-[11px] text-slate-300 text-center mb-4 leading-relaxed font-sans">
-        Tu voto único ha sido registrado exitosamente. Las opciones más respaldadas avanzarán a la siguiente ronda de refinamiento visual.
+        Tu voto único ha sido registrado exitosamente en el sistema oficial de la carrera.
       </p>
 
       <!-- Action Buttons -->

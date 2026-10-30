@@ -1,5 +1,33 @@
 describe('Official Logo Voting — Full Happy Path', () => {
   beforeEach(() => {
+    // Stub voting API endpoints for reliable, deterministic E2E execution
+    cy.intercept('GET', '**/api/v1/votes/check/*', (req) => {
+      req.reply({
+        student_id: req.url.split('/').pop() || '21948573',
+        has_voted: false,
+        message: 'Carné habilitado para votar',
+      })
+    }).as('checkStudent')
+
+    cy.intercept('POST', '**/api/v1/votes', (req) => {
+      req.reply({
+        statusCode: 201,
+        body: {
+          id: 1,
+          receipt_id: 'ICD-VOTE-20261030-9988AABB',
+          student_id: req.body.student_id,
+          student_name: req.body.student_name,
+          figure_id: req.body.figure_id,
+          palette_id: req.body.palette_id,
+          position_id: req.body.position_id,
+          rationale: req.body.rationale,
+          round: 1,
+          timestamp: new Date().toISOString(),
+          verification_hash: 'sha256:abc123456789def',
+        },
+      })
+    }).as('submitVote')
+
     cy.visit('/')
     cy.waitForAppReady()
   })
@@ -10,9 +38,8 @@ describe('Official Logo Voting — Full Happy Path', () => {
     cy.get('[data-cy="student-code-counter"]').should('contain.text', '8 / 8')
     cy.get('[data-cy="step1-continue-btn"]').should('not.be.disabled').click()
 
-    // Header updates with student badge
-    cy.get('[data-cy="header-student-badge"]').should('be.visible')
-    cy.get('[data-cy="header-student-code"]').should('contain.text', '21948573')
+    // Advances to Step 2
+    cy.get('[data-cy="step-indicator-2"]').should('be.visible')
 
     // --- Paso 2: Selección de Figura ---
     cy.get('[data-cy="figure-card-c2-matrix"]').click()

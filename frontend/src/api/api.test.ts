@@ -46,14 +46,14 @@ describe('API & Zod Schemas Validation', () => {
       const payload = {
         student_id: '20260001',
         student_name: 'María Flores',
-        figure_id: 'c1-tesseract',
+        figure_id: 'c4-tesseract',
         palette_id: 'cobalt',
         position_id: 'chest-center',
         rationale: 'Excelente contraste y equilibrio.',
       };
       const parsed = SubmitVoteRequestSchema.parse(payload);
       assert.equal(parsed.student_id, '20260001');
-      assert.equal(parsed.figure_id, 'c1-tesseract');
+      assert.equal(parsed.figure_id, 'c4-tesseract');
       assert.equal(parsed.palette_id, 'cobalt');
       assert.equal(parsed.position_id, 'chest-center');
     });
@@ -88,7 +88,7 @@ describe('API & Zod Schemas Validation', () => {
         receipt_id: 'VOTE-20261029-A1B2C3D4',
         student_id: '20260001',
         student_name: 'María Flores',
-        figure_id: 'c1-tesseract',
+        figure_id: 'c4-tesseract',
         palette_id: 'cobalt',
         position_id: 'chest-center',
         timestamp: '2026-10-29T21:00:00Z',

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useVotingStore } from '../stores/votingStore'
-import { ArrowLeft, MessageSquare, Send, ShieldAlert } from '@lucide/vue'
+import { ArrowLeft, MessageSquare, Send, ShieldAlert, AlertCircle } from '@lucide/vue'
 
 const store = useVotingStore()
 
@@ -110,15 +110,28 @@ function handleBack() {
         />
       </div>
 
-      <!-- Single Vote & Iterative Round Notice -->
+      <!-- Single Vote Notice -->
       <div class="p-3.5 rounded-xl bg-blue-950/40 border border-blue-500/30 text-xs text-slate-300 space-y-1">
         <div class="flex items-center gap-1.5 font-bold text-blue-300">
           <ShieldAlert class="w-4 h-4 text-blue-400 shrink-0" />
-          <span>Voto Único e Intransferible · Ronda 1</span>
+          <span>Voto Único e Intransferible</span>
         </div>
         <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed font-sans">
-          Cada estudiante dispone de <strong>un solo voto</strong> en esta Ronda 1. Una vez enviado, se emitirá tu comprobante digital y tu elección será contabilizada para definir los finalistas de la siguiente iteración.
+          Cada estudiante dispone de <strong>un solo voto</strong>. Una vez enviado, se emitirá tu comprobante digital y tu elección quedará registrada de forma oficial.
         </p>
+      </div>
+
+      <!-- Submission Error Feedback -->
+      <div
+        v-if="store.submitError"
+        data-cy="submit-error-banner"
+        class="p-3.5 rounded-xl bg-rose-950/60 border border-rose-800 text-xs font-mono text-rose-300 flex items-start gap-2.5"
+      >
+        <AlertCircle class="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+        <div class="space-y-1">
+          <p class="font-bold text-rose-200">No se pudo emitir el voto</p>
+          <p>{{ store.submitError }}</p>
+        </div>
       </div>
     </div>
 

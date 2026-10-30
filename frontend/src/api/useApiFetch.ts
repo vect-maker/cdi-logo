@@ -42,8 +42,12 @@ export const useApiFetch = createFetch({
     async onFetchError(ctx) {
       if (ctx.data) {
         const parsed = ErrorPayloadSchema.safeParse(ctx.data);
-        if (parsed.success && parsed.data.message) {
-          ctx.error = new Error(parsed.data.message);
+        if (parsed.success) {
+          const msg =
+            typeof parsed.data.detail === "string"
+              ? parsed.data.detail
+              : (parsed.data.message || "Error en la solicitud");
+          ctx.error = new Error(msg);
         }
       }
       return ctx;

@@ -14,7 +14,8 @@ declare global {
 }
 
 Cypress.Commands.add('waitForAppReady', () => {
-  cy.get('[data-cy="header-title"]', { timeout: 10000 }).should('be.visible')
+  cy.get('[data-cy="stepper-nav"]', { timeout: 10000 }).should('be.visible')
+  cy.get('[data-cy="student-code-input"]', { timeout: 10000 }).should('be.visible')
 })
 
 Cypress.Commands.add('enterStudentCode', (code: string) => {

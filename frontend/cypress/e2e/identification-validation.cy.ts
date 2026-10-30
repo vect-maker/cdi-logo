@@ -53,4 +53,29 @@ describe('Identification Step — Validation & Barriers', () => {
     cy.get('[data-cy="step-indicator-1"]').should('not.be.disabled').click()
     cy.get('[data-cy="student-code-input"]').should('have.value', '87654321')
   })
+
+  it('blocks continuation and displays error when student identifier has already voted', () => {
+    // Mock or verify student who already voted
+    cy.intercept('GET', '**/api/v1/votes/check/20261111', {
+      statusCode: 200,
+      body: {
+        student_id: '20261111',
+        has_voted: true,
+        message: 'El carné ya tiene un voto registrado',
+      },
+    }).as('checkStudentVoted')
+
+    cy.get('[data-cy="student-code-input"]').type('20261111')
+    cy.get('[data-cy="step1-continue-btn"]').click()
+    cy.wait('@checkStudentVoted')
+
+    // Error feedback must be visible and inform about single vote
+    cy.get('[data-cy="student-code-error"]')
+      .should('be.visible')
+      .and('contain.text', 'Este carné ya ha emitido su voto oficial')
+
+    // User is blocked on Step 1
+    cy.get('[data-cy="step1-continue-btn"]').should('be.visible')
+    cy.get('[data-cy="step2-next-btn"]').should('not.exist')
+  })
 })

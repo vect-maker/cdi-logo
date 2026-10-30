@@ -1,24 +1,27 @@
 import { z } from "zod";
 
 export const FigureIdSchema = z.enum([
-  "c1-tesseract",
+  "c1-neural",
   "c2-matrix",
-  "c3-circuit",
-  "c4-network",
-  "c5-binary",
+  "c3-hexcore",
+  "c4-tesseract",
+  "c5-voronoi",
   "c6-waveform",
 ]);
 
 export const PaletteIdSchema = z.enum([
-  "light",
-  "dark",
   "cobalt",
   "emerald",
   "violet",
   "amber",
+  "light",
+  "dark",
 ]);
 
 export const PositionIdSchema = z.enum([
+  "symbols",
+  "lockups",
+  "stacked",
   "chest-center",
   "chest-left",
   "sleeve-left",

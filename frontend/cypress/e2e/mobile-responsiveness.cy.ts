@@ -5,8 +5,8 @@ describe('Mobile Responsiveness & Viewport UX (390x844)', () => {
     cy.waitForAppReady()
   })
 
-  it('renders a compact header without horizontal overflow or clipping', () => {
-    cy.get('[data-cy="header-title"]').should('be.visible')
+  it('renders a compact header stepper without horizontal overflow or clipping', () => {
+    cy.get('[data-cy="stepper-nav"]').should('be.visible')
     cy.window().then((win) => {
       expect(win.document.documentElement.scrollWidth).to.be.lte(390)
     })

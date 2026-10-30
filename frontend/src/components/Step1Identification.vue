@@ -1,25 +1,17 @@
 <script setup lang="ts">
 import { useVotingStore } from '../stores/votingStore'
-import { AlertCircle, ArrowRight, Fingerprint, Info, Sparkles } from '@lucide/vue'
+import { AlertCircle, ArrowRight, Fingerprint, Info, Loader2 } from '@lucide/vue'
 
 const store = useVotingStore()
 
-function handleContinue() {
-  store.validateAndProceedStep1()
+async function handleContinue() {
+  await store.validateAndProceedStep1()
 }
 </script>
 
 <template>
   <div class="max-w-xl mx-auto py-5 sm:py-12">
     <div class="solid-panel rounded-2xl p-5 sm:p-9 shadow-lg">
-      <!-- Round & Iterative Badge -->
-      <div class="flex justify-center mb-3.5 sm:mb-4">
-        <span class="inline-flex items-center gap-1.5 bg-blue-950/80 border border-blue-500/50 text-blue-300 text-[11px] sm:text-xs px-3 py-1 rounded-full font-mono font-semibold shadow-sm">
-          <Sparkles class="w-3.5 h-3.5 text-blue-400" />
-          <span>Ronda 1 de Votación · Enfoque Iterativo</span>
-        </span>
-      </div>
-
       <div class="text-center mb-5 sm:mb-6">
         <h2 class="text-xl sm:text-3xl font-extrabold text-slate-100 tracking-tight">
           Elige el Logotipo de tu Carrera
@@ -29,7 +21,7 @@ function handleContinue() {
         </p>
       </div>
 
-      <!-- Information Card: 1 Vote & Iterative Rules -->
+      <!-- Information Card: 1 Vote Rule -->
       <div class="mb-5 sm:mb-6 p-3.5 sm:p-4 rounded-xl bg-slate-950/90 border border-slate-800 text-left space-y-2 text-xs">
         <div class="flex items-center gap-2 font-bold text-slate-200">
           <Info class="w-4 h-4 text-blue-400 shrink-0" />
@@ -39,10 +31,6 @@ function handleContinue() {
           <p class="flex items-start gap-1.5">
             <span class="text-blue-400 font-bold">•</span>
             <span><strong class="text-white">1 voto por estudiante:</strong> Tu código oficial solo permite emitir un único voto intransferible.</span>
-          </p>
-          <p class="flex items-start gap-1.5">
-            <span class="text-blue-400 font-bold">•</span>
-            <span><strong class="text-white">Proceso iterativo:</strong> Esta es la primera ronda con 6 opciones base. Las opciones con mayor respaldo avanzarán a rondas de refinamiento estético y combinaciones finales.</span>
           </p>
         </div>
       </div>
@@ -98,12 +86,17 @@ function handleContinue() {
         <button
           type="submit"
           data-cy="step1-continue-btn"
-          @click="handleContinue"
-          :disabled="!store.isCodeValid"
-          class="w-full btn-primary min-h-[48px] py-3.5 rounded-xl font-semibold text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-[0.99]"
+          :disabled="!store.isCodeValid || store.isValidatingCode"
+          class="w-full btn-primary min-h-[48px] py-3.5 rounded-xl font-semibold text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <span>Continuar</span>
-          <ArrowRight class="w-4 h-4 stroke-[2]" />
+          <span v-if="store.isValidatingCode" class="flex items-center gap-2">
+            <Loader2 class="w-4 h-4 animate-spin" />
+            <span>Verificando carné...</span>
+          </span>
+          <span v-else class="flex items-center gap-2">
+            <span>Continuar</span>
+            <ArrowRight class="w-4 h-4 stroke-[2]" />
+          </span>
         </button>
       </form>
     </div>
