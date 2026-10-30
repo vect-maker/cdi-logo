@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+  <title>ICD 4D Hypercube Tesseract Projection 1-Color Black</title>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 129.457031 42.152344 L 201.617188 83.8125 L 160.980469 106.097656 L 130.476562 88.484375 Z M 129.457031 42.152344 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 203.074219 86.339844 L 203.074219 169.660156 L 163.457031 145.613281 L 163.457031 110.386719 Z M 203.074219 86.339844 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 201.617188 172.1875 L 129.457031 213.847656 L 130.476562 167.515625 L 160.980469 149.902344 Z M 201.617188 172.1875 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 126.542969 213.847656 L 54.382812 172.1875 L 95.019531 149.902344 L 125.523438 167.515625 Z M 126.542969 213.847656 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 52.925781 169.660156 L 52.925781 86.339844 L 92.542969 110.386719 L 92.542969 145.613281 Z M 52.925781 169.660156 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 54.382812 83.8125 L 126.542969 42.152344 L 125.523438 88.484375 L 95.019531 106.097656 Z M 54.382812 83.8125 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 96.46875 108.640625 L 128 91.28125 L 159.53125 108.640625 L 128 126 Z M 96.46875 108.640625 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 129.730469 129 L 160.53125 110.371094 L 159.800781 146.359375 L 129 164.988281 Z M 129.730469 129 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 96.199219 146.359375 L 95.46875 110.371094 L 126.269531 129 L 127 164.988281 Z M 96.199219 146.359375 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 133 128 C 133 134.667969 123 134.667969 123 128 C 123 121.332031 133 121.332031 133 128 "/>
+</svg>

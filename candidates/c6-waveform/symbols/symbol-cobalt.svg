@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+  <title>ICD Harmonized Signal and Quantized Waveform Symbol (Tech Cobalt and Cyan)</title>
+<path fill-rule="nonzero" fill="rgb(11.764706%, 25.098039%, 68.627451%)" fill-opacity="1" d="M 56 110 L 65 122.601562 L 65 133.398438 L 56 146 L 47 133.398438 L 47 122.601562 Z M 56 110 "/>
+<path fill-rule="nonzero" fill="rgb(23.137255%, 50.980392%, 96.470588%)" fill-opacity="1" d="M 80 96 L 89 108.601562 L 89 147.398438 L 80 160 L 71 147.398438 L 71 108.601562 Z M 80 96 "/>
+<path fill-rule="nonzero" fill="rgb(37.647059%, 64.705882%, 98.039216%)" fill-opacity="1" d="M 104 74 L 113 86.601562 L 113 169.398438 L 104 182 L 95 169.398438 L 95 86.601562 Z M 104 74 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 94.117647%, 100%)" fill-opacity="1" d="M 128 44 L 139 58 L 139 198 L 128 212 L 117 198 L 117 58 Z M 128 44 "/>
+<path fill-rule="nonzero" fill="rgb(37.647059%, 64.705882%, 98.039216%)" fill-opacity="1" d="M 152 74 L 161 86.601562 L 161 169.398438 L 152 182 L 143 169.398438 L 143 86.601562 Z M 152 74 "/>
+<path fill-rule="nonzero" fill="rgb(23.137255%, 50.980392%, 96.470588%)" fill-opacity="1" d="M 176 96 L 185 108.601562 L 185 147.398438 L 176 160 L 167 147.398438 L 167 108.601562 Z M 176 96 "/>
+<path fill-rule="nonzero" fill="rgb(11.764706%, 25.098039%, 68.627451%)" fill-opacity="1" d="M 200 110 L 209 122.601562 L 209 133.398438 L 200 146 L 191 133.398438 L 191 122.601562 Z M 200 110 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 94.117647%, 100%)" fill-opacity="1" d="M 30 126 L 44 126 L 44 130 L 30 130 Z M 30 126 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 94.117647%, 100%)" fill-opacity="1" d="M 212 126 L 226 126 L 226 130 L 212 130 Z M 212 126 "/>
+</svg>

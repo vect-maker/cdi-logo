@@ -1,0 +1,3 @@
+# Ignore all generated raster renders, concept sheets, and apparel showcases
+*
+!.gitignore

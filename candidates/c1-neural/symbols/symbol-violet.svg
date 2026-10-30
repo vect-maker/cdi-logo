@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+  <title>ICD Neural Cluster and Distributed Graph Symbol (Ultraviolet and Neon Orchid)</title>
+<path fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(35.686275%, 12.941176%, 71.372549%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 48 L 46 128 "/>
+<path fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(35.686275%, 12.941176%, 71.372549%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 128 L 46 208 "/>
+<path fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(54.509804%, 36.078431%, 96.470588%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 48 L 124 70 "/>
+<path fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(100%, 16.470588%, 52.156863%)" stroke-opacity="1" stroke-miterlimit="10" d="M 124 70 L 208 128 "/>
+<path fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(54.509804%, 36.078431%, 96.470588%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 208 L 124 186 "/>
+<path fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(100%, 16.470588%, 52.156863%)" stroke-opacity="1" stroke-miterlimit="10" d="M 124 186 L 208 128 "/>
+<path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(35.686275%, 12.941176%, 71.372549%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 128 L 86 98 "/>
+<path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(35.686275%, 12.941176%, 71.372549%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 128 L 86 158 "/>
+<path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(35.686275%, 12.941176%, 71.372549%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 48 L 86 98 "/>
+<path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(35.686275%, 12.941176%, 71.372549%)" stroke-opacity="1" stroke-miterlimit="10" d="M 46 208 L 86 158 "/>
+<path fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(54.509804%, 36.078431%, 96.470588%)" stroke-opacity="1" stroke-miterlimit="10" d="M 86 98 L 124 70 "/>
+<path fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(54.509804%, 36.078431%, 96.470588%)" stroke-opacity="1" stroke-miterlimit="10" d="M 86 158 L 124 186 "/>
+<path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(35.686275%, 12.941176%, 71.372549%)" stroke-opacity="1" stroke-miterlimit="10" d="M 86 98 L 86 158 "/>
+<path fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(54.509804%, 36.078431%, 96.470588%)" stroke-opacity="1" stroke-miterlimit="10" d="M 124 70 L 124 186 "/>
+<path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(100%, 16.470588%, 52.156863%)" stroke-opacity="1" stroke-miterlimit="10" d="M 124 70 L 160 128 "/>
+<path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(100%, 16.470588%, 52.156863%)" stroke-opacity="1" stroke-miterlimit="10" d="M 124 186 L 160 128 "/>
+<path fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(100%, 16.470588%, 52.156863%)" stroke-opacity="1" stroke-miterlimit="10" d="M 160 128 L 208 128 "/>
+<path fill-rule="nonzero" fill="rgb(35.686275%, 12.941176%, 71.372549%)" fill-opacity="1" d="M 60 48 C 60 55.730469 53.730469 62 46 62 C 38.269531 62 32 55.730469 32 48 C 32 40.269531 38.269531 34 46 34 C 53.730469 34 60 40.269531 60 48 "/>
+<path fill-rule="nonzero" fill="rgb(35.686275%, 12.941176%, 71.372549%)" fill-opacity="1" d="M 60 128 C 60 135.730469 53.730469 142 46 142 C 38.269531 142 32 135.730469 32 128 C 32 120.269531 38.269531 114 46 114 C 53.730469 114 60 120.269531 60 128 "/>
+<path fill-rule="nonzero" fill="rgb(35.686275%, 12.941176%, 71.372549%)" fill-opacity="1" d="M 60 208 C 60 215.730469 53.730469 222 46 222 C 38.269531 222 32 215.730469 32 208 C 32 200.269531 38.269531 194 46 194 C 53.730469 194 60 200.269531 60 208 "/>
+<path fill-rule="nonzero" fill="rgb(54.509804%, 36.078431%, 96.470588%)" fill-opacity="1" d="M 139 70 C 139 78.285156 132.285156 85 124 85 C 115.714844 85 109 78.285156 109 70 C 109 61.714844 115.714844 55 124 55 C 132.285156 55 139 61.714844 139 70 "/>
+<path fill-rule="nonzero" fill="rgb(54.509804%, 36.078431%, 96.470588%)" fill-opacity="1" d="M 139 186 C 139 194.285156 132.285156 201 124 201 C 115.714844 201 109 194.285156 109 186 C 109 177.714844 115.714844 171 124 171 C 132.285156 171 139 177.714844 139 186 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 16.470588%, 52.156863%)" fill-opacity="1" d="M 94 98 C 94 102.417969 90.417969 106 86 106 C 81.582031 106 78 102.417969 78 98 C 78 93.582031 81.582031 90 86 90 C 90.417969 90 94 93.582031 94 98 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 16.470588%, 52.156863%)" fill-opacity="1" d="M 94 158 C 94 162.417969 90.417969 166 86 166 C 81.582031 166 78 162.417969 78 158 C 78 153.582031 81.582031 150 86 150 C 90.417969 150 94 153.582031 94 158 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 16.470588%, 52.156863%)" fill-opacity="1" d="M 168 128 C 168 132.417969 164.417969 136 160 136 C 155.582031 136 152 132.417969 152 128 C 152 123.582031 155.582031 120 160 120 C 164.417969 120 168 123.582031 168 128 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 16.470588%, 52.156863%)" fill-opacity="1" d="M 228 128 C 228 139.046875 219.046875 148 208 148 C 196.953125 148 188 139.046875 188 128 C 188 116.953125 196.953125 108 208 108 C 219.046875 108 228 116.953125 228 128 "/>
+</svg>
