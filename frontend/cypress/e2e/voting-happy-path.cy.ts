@@ -99,9 +99,6 @@ describe('Official Logo Voting — Full Happy Path', () => {
     cy.get('[data-cy="receipt-palette"]').should('contain.text', 'Esmeralda & Menta')
     cy.get('[data-cy="receipt-composition"]').should('contain.text', 'Logo Horizontal')
 
-    // Verify receipt download button is clickable
-    cy.get('[data-cy="download-receipt-btn"]').should('be.visible').click()
-
     // Finalize and reset
     cy.get('[data-cy="finish-vote-btn"]').click()
     cy.get('[data-cy="receipt-modal"]').should('not.exist')

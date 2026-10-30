@@ -117,7 +117,7 @@ function handleBack() {
           <span>Voto Único e Intransferible</span>
         </div>
         <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed font-sans">
-          Cada estudiante dispone de <strong>un solo voto</strong>. Una vez enviado, se emitirá tu comprobante digital y tu elección quedará registrada de forma oficial.
+          Cada estudiante dispone de <strong>un solo voto</strong>. Una vez enviado, tu elección quedará registrada de forma oficial en el sistema.
         </p>
       </div>
 

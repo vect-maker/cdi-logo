@@ -1,23 +1,8 @@
 <script setup lang="ts">
 import { useVotingStore } from '../stores/votingStore'
-import { CheckCircle2, Download, RotateCcw, X } from '@lucide/vue'
+import { CheckCircle2, RotateCcw, X } from '@lucide/vue'
 
 const store = useVotingStore()
-
-function downloadReceipt() {
-  if (!store.submittedVote) return
-  const blob = new Blob([JSON.stringify(store.submittedVote, null, 2)], {
-    type: 'application/json',
-  })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = `comprobante-icd-${store.submittedVote.studentCode}.json`
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-  URL.revokeObjectURL(url)
-}
 
 function handleClose() {
   store.showReceiptModal = false
@@ -58,7 +43,7 @@ function handleReset() {
             ¡Voto Registrado!
           </h3>
           <p class="text-xs text-slate-300">
-            Comprobante oficial de participación electoral ICD.
+            Confirmación oficial de participación electoral ICD.
           </p>
         </div>
       </div>
@@ -93,24 +78,14 @@ function handleReset() {
       </p>
 
       <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row items-center gap-2.5">
-        <button
-          type="button"
-          data-cy="download-receipt-btn"
-          @click="downloadReceipt"
-          class="w-full sm:flex-1 btn-primary min-h-[44px] py-2.5 sm:py-3 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99] shadow-sm"
-        >
-          <Download class="w-4 h-4 stroke-[2.5]" />
-          <span>Descargar Comprobante</span>
-        </button>
-
+      <div class="flex items-center justify-center">
         <button
           type="button"
           data-cy="finish-vote-btn"
           @click="handleReset"
-          class="w-full sm:w-auto btn-secondary min-h-[44px] px-5 py-2.5 sm:py-3 rounded-xl text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer active:scale-[0.99]"
+          class="w-full btn-primary min-h-[44px] py-2.5 sm:py-3 px-6 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99] shadow-sm"
         >
-          <RotateCcw class="w-4 h-4 text-slate-300" />
+          <RotateCcw class="w-4 h-4" />
           <span>Finalizar</span>
         </button>
       </div>
